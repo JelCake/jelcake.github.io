@@ -11,7 +11,6 @@
       <div class="container">
         <h1>Your Name</h1>
         <nav>
-          <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
@@ -20,24 +19,53 @@
     </header>
 
     <section class="hero">
-      <div class="container">
-        <h2>Hi, I'm Your Name</h2>
-        <p>
-          I build things for the web. Full-stack developer passionate about
-          clean code, great design, and solving real problems.
-        </p>
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h2>Your Name</h2>
+          <p class="hero-subtitle">
+            I'm a developer with experience building modern web applications. I
+            enjoy turning complex problems into simple, beautiful, and intuitive
+            solutions. When I'm not coding, you'll find me exploring new
+            technologies, writing, or enjoying the outdoors.
+          </p>
+        </div>
+        <div class="hero-image">
+          <div class="profile-placeholder">
+            <span>Profile Photo</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="about">
+    <section id="skills">
       <div class="container">
-        <h3>About Me</h3>
-        <p class="about-text">
-          I'm a developer with experience building modern web applications. I
-          enjoy turning complex problems into simple, beautiful, and intuitive
-          solutions. When I'm not coding, you'll find me exploring new
-          technologies, writing, or enjoying the outdoors.
-        </p>
+        <h3>Skills</h3>
+        <div class="skill-icons">
+          <div class="skill-item">
+            <div class="skill-circle"></div>
+            <span class="skill-label">TypeScript</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-circle"></div>
+            <span class="skill-label">React</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-circle"></div>
+            <span class="skill-label">Node.js</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-circle"></div>
+            <span class="skill-label">HTML/CSS</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-circle"></div>
+            <span class="skill-label">Git</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-circle"></div>
+            <span class="skill-label">SQL</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -70,30 +98,35 @@
       </div>
     </section>
 
-    <section id="skills">
-      <div class="container">
-        <h3>Skills</h3>
-        <div class="skill-tags">
-          <span>TypeScript</span>
-          <span>React</span>
-          <span>Node.js</span>
-          <span>HTML/CSS</span>
-          <span>Git</span>
-          <span>SQL</span>
-        </div>
-      </div>
-    </section>
-
     <section id="contact">
       <div class="container">
         <h3>Contact</h3>
         <p>Want to work together or just say hi?</p>
-        <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+        <div class="contact-links">
+          <a href="mailto:hello@example.com" class="contact-link">
+            <span class="contact-icon"></span>
+            <span>Email</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="contact-icon"></span>
+            <span>GitHub</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="contact-icon"></span>
+            <span>WhatsApp</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="contact-icon"></span>
+            <span>LinkedIn</span>
+          </a>
+        </div>
       </div>
     </section>
 
     <footer>
-      <div class="container">&copy; 2026 Your Name. All rights reserved.</div>
+      <div class="container">
+        <p>&copy; 2026 Your Name. All rights reserved.</p>
+      </div>
     </footer>
     <script src="javaScript/script.js"></script>
   </body>
