@@ -3,131 +3,138 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Home | Portfolio</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/home.css" />
   </head>
   <body>
-    <header>
-      <div class="container">
-        <h1>Your Name</h1>
-        <nav>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <section class="hero">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <h2>Your Name</h2>
-          <p class="hero-subtitle">
-            I'm a developer with experience building modern web applications. I
-            enjoy turning complex problems into simple, beautiful, and intuitive
-            solutions. When I'm not coding, you'll find me exploring new
-            technologies, writing, or enjoying the outdoors.
-          </p>
+    <div id="page">
+      <!-- Header -->
+      <header>
+        <div class="container">
+          <a href="index.html" class="logo"><strong>Your</strong> <em>Name</em></a>
+          <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="work.html">Work</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </nav>
         </div>
-        <div class="hero-image">
-          <div class="profile-placeholder">
-            <span>Profile Photo</span>
-          </div>
-        </div>
-      </div>
-    </section>
+      </header>
 
-    <section id="skills">
-      <div class="container">
-        <h3>Skills</h3>
-        <div class="skill-icons">
-          <div class="skill-item">
-            <div class="skill-circle"></div>
-            <span class="skill-label">TypeScript</span>
+      <!-- Main content -->
+      <main id="content">
+        <!-- Hero -->
+        <section class="hero">
+          <div class="container">
+            <div class="hero-text">
+              <h2>Your Name</h2>
+              <p class="role">
+                Computer Science Student &middot; Frontend Intern at Company
+              </p>
+              <p class="hero-subtitle">
+                I'm a developer with experience building modern web
+                applications. I enjoy turning complex problems into simple,
+                beautiful, and intuitive solutions. When I'm not coding, you'll
+                find me exploring new technologies, writing, or enjoying the
+                outdoors.
+              </p>
+            </div>
+            <div class="hero-image">
+              <div class="profile-circle"></div>
+            </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-circle"></div>
-            <span class="skill-label">React</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-circle"></div>
-            <span class="skill-label">Node.js</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-circle"></div>
-            <span class="skill-label">HTML/CSS</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-circle"></div>
-            <span class="skill-label">Git</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-circle"></div>
-            <span class="skill-label">SQL</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="projects">
-      <div class="container">
-        <h3>Projects</h3>
-        <div class="grid">
-          <div class="card">
-            <h4>Project One</h4>
-            <p>
-              A web application that does something useful. Built with modern
-              tools and best practices.
-            </p>
+        <!-- Skills -->
+        <section>
+          <div class="container">
+            <h3>Skills</h3>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon"></div>
+                <span class="skill-label">TypeScript</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"></div>
+                <span class="skill-label">React</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"></div>
+                <span class="skill-label">Node.js</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"></div>
+                <span class="skill-label">HTML/CSS</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"></div>
+                <span class="skill-label">Git</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"></div>
+                <span class="skill-label">SQL</span>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <h4>Project Two</h4>
-            <p>
-              An open-source library that helps developers ship faster. Used by
-              hundreds of teams.
-            </p>
-          </div>
-          <div class="card">
-            <h4>Project Three</h4>
-            <p>
-              A design system built for consistency and scalability across
-              products.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="contact">
-      <div class="container">
-        <h3>Contact</h3>
-        <p>Want to work together or just say hi?</p>
-        <div class="contact-links">
-          <a href="mailto:hello@example.com" class="contact-link">
-            <span class="contact-icon"></span>
-            <span>Email</span>
-          </a>
-          <a href="#" class="contact-link">
-            <span class="contact-icon"></span>
-            <span>GitHub</span>
-          </a>
-          <a href="#" class="contact-link">
-            <span class="contact-icon"></span>
-            <span>WhatsApp</span>
-          </a>
-          <a href="#" class="contact-link">
-            <span class="contact-icon"></span>
-            <span>LinkedIn</span>
-          </a>
-        </div>
-      </div>
-    </section>
+        <!-- Recent Projects & Achievements -->
+        <section>
+          <div class="container">
+            <h3>Recent Projects &amp; Achievements</h3>
+            <div class="projects-grid">
+              <div class="card">
+                <h4>Project One</h4>
+                <p>
+                  A web application that simplifies task management with
+                  real-time collaboration features.
+                </p>
+                <div class="tech">
+                  <span>React</span>
+                  <span>Node.js</span>
+                  <span>Socket.io</span>
+                </div>
+                <a href="work.html" class="project-link">View Project &rarr;</a>
+              </div>
+              <div class="card">
+                <h4>Project Two</h4>
+                <p>
+                  An open-source utility library that helps developers handle
+                  common data transformations.
+                </p>
+                <div class="tech">
+                  <span>TypeScript</span>
+                  <span>Vitest</span>
+                </div>
+                <a href="work.html" class="project-link">View Project &rarr;</a>
+              </div>
+              <div class="card">
+                <h4>Project Three</h4>
+                <p>
+                  A design system with reusable components built for consistency
+                  across products.
+                </p>
+                <div class="tech">
+                  <span>React</span>
+                  <span>Storybook</span>
+                  <span>CSS Modules</span>
+                </div>
+                <a href="work.html" class="project-link">View Project &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2026 Your Name. All rights reserved.</p>
-      </div>
-    </footer>
-    <script src="javaScript/script.js"></script>
+      <!-- Footer -->
+      <footer>
+        <div class="container">
+          <p>&copy; 2026 Your Name. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+    <script src="javaScript/main.js"></script>
+    <script src="javaScript/home.js"></script>
   </body>
 </html>

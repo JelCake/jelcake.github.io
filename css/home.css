@@ -1,0 +1,87 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero h2 {
+  font-size: 8.75rem;
+}
+
+.hero .role,
+.hero .hero-subtitle {
+  font-size: 1.75rem;
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.profile-circle {
+  width: 19.25rem;
+  height: 19.25rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.75rem;
+}
+
+section:not(:first-child) h3 {
+  font-size: 2.625rem;
+  text-align: center;
+}
+
+section:not(:first-child) h4 {
+  font-size: 1.75rem;
+}
+
+section:not(:first-child) p,
+.skill-label,
+.tech span {
+  font-size: 0.875rem;
+}
+
+.project-link {
+  font-size: 0.875rem;
+}
+
+.hero::after {
+  content: "\2193";
+  display: block;
+  margin-top: 3.5rem;
+  font-size: 1.75rem;
+  color: #a0a0a0;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.875rem);
+  }
+}
