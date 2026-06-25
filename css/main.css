@@ -1,5 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,800;1,400&display=swap");
 
+:root {
+  --unit: 1.75rem; /* base spacing unit */
+
+  --s-0125: calc(var(--unit) * 0.125); /* ~3.5px */
+  --s-025: calc(var(--unit) * 0.25);   /* ~7px */
+  --s-0375: calc(var(--unit) * 0.375); /* ~10.5px */
+  --s-05: calc(var(--unit) * 0.5);     /* ~14px */
+  --s-0625: calc(var(--unit) * 0.625); /* ~17.5px */
+  --s-075: calc(var(--unit) * 0.75);   /* ~21px */
+  --s-0875: calc(var(--unit) * 0.875); /* ~24.5px */
+  --s-1: var(--unit);                  /* 28px */
+  --s-15: calc(var(--unit) * 1.5);     /* 42px */
+  --s-2: calc(var(--unit) * 2);        /* 56px */
+  --s-25: calc(var(--unit) * 2.5);     /* 70px */
+  --s-3: calc(var(--unit) * 3);        /* 84px */
+  --s-35: calc(var(--unit) * 3.5);     /* 98px */
+  --s-4: calc(var(--unit) * 4);        /* 112px */
+  --s-45: calc(var(--unit) * 4.5);     /* 126px */
+  --s-5: calc(var(--unit) * 5);        /* 140px */
+  --s-55: calc(var(--unit) * 5.5);     /* 154px */
+  --s-6: calc(var(--unit) * 6);        /* 168px */
+  --s-65: calc(var(--unit) * 6.5);     /* 182px */
+  --s-7: calc(var(--unit) * 7);        /* 196px */
+  --s-75: calc(var(--unit) * 7.5);     /* 210px */
+  --s-8: calc(var(--unit) * 8);        /* 224px */
+  --s-85: calc(var(--unit) * 8.5);     /* 238px */
+  --s-9: calc(var(--unit) * 9);        /* 252px */
+  --s-95: calc(var(--unit) * 9.5);     /* 266px */
+  --s-10: calc(var(--unit) * 10);      /* 280px */
+  --s-11: calc(var(--unit) * 11);      /* 308px */
+  --s-37: calc(var(--unit) * 45);      /* 1260px — max container width */
+}
+
 html,
 body {
   height: 100%;
