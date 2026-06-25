@@ -1,0 +1,19 @@
+#content {
+  min-height: var(--full);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-circle {
+  width: var(--s-11);
+  height: var(--s-11);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: var(--s-2);
+  flex-shrink: 0;
+}

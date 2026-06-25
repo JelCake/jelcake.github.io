@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | Portfolio</title>
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/proportions.css" />
     <link rel="stylesheet" href="css/home.css" />
   </head>
   <body>
@@ -12,11 +13,16 @@
       <!-- Header -->
       <header>
         <div class="container">
-          <a href="index.html" class="logo"><strong>Your</strong> <em>Name</em></a>
+          <div class="left-group">
+            <div class="profile-pic"></div>
+            <a href="index.html" class="logo"
+              ><strong>Your</strong> <em>Name</em></a
+            >
+          </div>
           <nav>
             <a href="index.html" class="active">Home</a>
             <a href="work.html">Work</a>
-            <a href="about.html">About</a>
+            <a href="about.html">About Me</a>
             <a href="contact.html">Contact</a>
           </nav>
         </div>
@@ -26,6 +32,7 @@
       <main id="content">
         <!-- Hero -->
         <section class="hero">
+          <div class="hero-image-bg">[Image]</div>
           <div class="container">
             <div class="hero-text">
               <h2>Your Name</h2>
@@ -40,16 +47,13 @@
                 outdoors.
               </p>
             </div>
-            <div class="hero-image">
-              <div class="profile-circle"></div>
-            </div>
           </div>
         </section>
 
         <!-- Skills -->
         <section>
           <div class="container">
-            <h3>Skills</h3>
+            <h3><em>Skills</em></h3>
             <div class="skills-grid">
               <div class="skill-item">
                 <div class="skill-icon"></div>
@@ -76,6 +80,22 @@
                 <span class="skill-label">SQL</span>
               </div>
             </div>
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="photo-card">
+                  <div class="photo-card-img">TEST</div>
+                  <button class="photo-card-btn">View Project using <em>Skill</em></button>
+                </div>
+                <div class="photo-card">
+                  <div class="photo-card-img">TEST</div>
+                  <button class="photo-card-btn">View Project using <em>Skill</em></button>
+                </div>
+                <div class="photo-card">
+                  <div class="photo-card-img">TEST</div>
+                  <button class="photo-card-btn">View Project using <em>Skill</em></button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -84,43 +104,44 @@
           <div class="container">
             <h3>Projects &amp; <em>Achievements</em></h3>
             <div class="projects-grid">
-              <div class="card">
+              <div class="project-item">
                 <h4>Project One</h4>
-                <p>
-                  A web application that simplifies task management with
-                  real-time collaboration features.
-                </p>
-                <div class="tech">
-                  <span>React</span>
-                  <span>Node.js</span>
-                  <span>Socket.io</span>
+                <div class="card">
+                  <div class="card-img">[Image]</div>
+                  <div class="card-body">
+                    <p>
+                      A web application that simplifies task management with
+                      real-time collaboration features.
+                    </p>
+                    <a href="work.html" class="project-link">View project &rarr;</a>
+                  </div>
                 </div>
-                <a href="work.html" class="project-link">View Project &rarr;</a>
               </div>
-              <div class="card">
+              <div class="project-item">
                 <h4>Project Two</h4>
-                <p>
-                  An open-source utility library that helps developers handle
-                  common data transformations.
-                </p>
-                <div class="tech">
-                  <span>TypeScript</span>
-                  <span>Vitest</span>
+                <div class="card">
+                  <div class="card-img">[Image]</div>
+                  <div class="card-body">
+                    <p>
+                      An open-source utility library that helps developers handle
+                      common data transformations.
+                    </p>
+                    <a href="work.html" class="project-link">View project &rarr;</a>
+                  </div>
                 </div>
-                <a href="work.html" class="project-link">View Project &rarr;</a>
               </div>
-              <div class="card">
+              <div class="project-item">
                 <h4>Project Three</h4>
-                <p>
-                  A design system with reusable components built for consistency
-                  across products.
-                </p>
-                <div class="tech">
-                  <span>React</span>
-                  <span>Storybook</span>
-                  <span>CSS Modules</span>
+                <div class="card">
+                  <div class="card-img">[Image]</div>
+                  <div class="card-body">
+                    <p>
+                      A design system with reusable components built for consistency
+                      across products.
+                    </p>
+                    <a href="work.html" class="project-link">View project &rarr;</a>
+                  </div>
                 </div>
-                <a href="work.html" class="project-link">View Project &rarr;</a>
               </div>
             </div>
           </div>
