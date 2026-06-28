@@ -27,23 +27,40 @@
 
 .hero-image-bg {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: var(--s-37);
-  height: var(--s-37);
+  height: calc(var(--s-1) * 42);
+  width: auto;
   z-index: 0;
-  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.06);
-  font-size: var(--s-2);
-  border: 1px dashed rgba(255, 255, 255, 0.15); /* temp — remove when image added */
+  /* opacity: 0.9; */
+  background: linear-gradient(#1e1e2a 15%, #1c1c22 40%);
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 5%,
+      black 20%,
+      black 75%,
+      transparent 95%
+    ),
+    linear-gradient(
+      to right,
+      transparent 5%,
+      black 20%,
+      black 60%,
+      transparent 95%
+    );
+  mask-composite: intersect;
 }
 
 .hero h2 {
   font-size: var(--s-5);
+  text-shadow: -5px 20px 15px rgba(0, 0, 0);
+}
+
+.hero .role,
+.hero .hero-subtitle {
+  text-shadow: -5px 10px 15px rgba(0, 0, 0);
 }
 
 .hero .role,
