@@ -59,6 +59,7 @@ a {
   flex-direction: column;
   min-height: 100vh;
   position: relative;
+  overflow-x: hidden;
   background: linear-gradient(#1e1e2a 15%, #1c1c22 40%);
 }
 

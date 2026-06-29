@@ -6,6 +6,7 @@
     <title>Home | Portfolio</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/custom.css" />
   </head>
   <body>
     <div id="page">
@@ -38,8 +39,11 @@
           />
           <div class="container">
             <div class="hero-text">
-              <h2>Your Name</h2>
-              <p class="role">
+              <div class="hero-title">
+                <h1>Software</h1>
+                <h1>Engineer</h1>
+              </div>
+              <p>
                 Computer Science Student &middot; Frontend Intern at Company
               </p>
               <p class="hero-subtitle">
@@ -54,70 +58,86 @@
         </section>
 
         <!-- Skills -->
-        <section>
-          <div class="container">
-            <h3><em>Skills</em></h3>
-            <div class="skills-grid">
-              <div class="skill-item">
-                <div class="skill-icon"></div>
-                <span class="skill-label">TypeScript/JavaScript</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon"></div>
-                <span class="skill-label">Node.js</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon"></div>
-                <span class="skill-label">Express</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon"></div>
-                <span class="skill-label">HTML/CSS</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon"></div>
-                <span class="skill-label">Java</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon"></div>
-                <span class="skill-label">MySQL</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon"></div>
-                <span class="skill-label">GIT</span>
+        <section id="skills">
+          <h3 class="skills-title"><em>Skills</em></h3>
+          <div class="skill-and-img">
+            <div>
+              <div class="container skills-section">
+                <div class="skills-grid">
+                  <div class="skill-item">
+                    <div class="skill-icon"></div>
+                    <span class="skill-label">TypeScript/JavaScript</span>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-icon"></div>
+                    <span class="skill-label">Node.js</span>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-icon"></div>
+                    <span class="skill-label">Express</span>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-icon"></div>
+                    <span class="skill-label">HTML/CSS</span>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-icon"></div>
+                    <span class="skill-label">Java</span>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-icon"></div>
+                    <span class="skill-label">MySQL</span>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-icon"></div>
+                    <span class="skill-label">GIT</span>
+                  </div>
+                </div>
+                <div class="carousel">
+                  <div class="carousel-track">
+                    <div class="photo-card">
+                      <div class="photo-card-img">TEST</div>
+                      <a class="photo-card-btn" href="work.html">
+                        View Project using <em>Skill</em>
+                      </a>
+                    </div>
+                    <div class="photo-card">
+                      <div class="photo-card-img">TEST</div>
+                      <a class="photo-card-btn" href="work.html">
+                        View Project using <em>Skill</em>
+                      </a>
+                    </div>
+                    <div class="photo-card">
+                      <div class="photo-card-img">TEST</div>
+                      <a class="photo-card-btn" href="work.html">
+                        View Project using <em>Skill</em>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="carousel">
-              <div class="carousel-track">
-                <div class="photo-card">
-                  <div class="photo-card-img">TEST</div>
-                  <a class="photo-card-btn" href="work.html">
-                    View Project using <em>Skill</em>
-                  </a>
-                </div>
-                <div class="photo-card">
-                  <div class="photo-card-img">TEST</div>
-                  <a class="photo-card-btn" href="work.html">
-                    View Project using <em>Skill</em>
-                  </a>
-                </div>
-                <div class="photo-card">
-                  <div class="photo-card-img">TEST</div>
-                  <a class="photo-card-btn" href="work.html">
-                    View Project using <em>Skill</em>
-                  </a>
-                </div>
-              </div>
+            <div>
+              <img
+                class="skills-bg-1"
+                src="img/index-page/cool-face.jpg"
+                alt="image"
+              />
             </div>
           </div>
         </section>
 
         <!-- Recent Projects & Achievements -->
-        <section>
+        <section id="projects">
           <div class="container">
             <h3>Projects &amp; <em>Achievements</em></h3>
             <div class="projects-wrapper">
               <div class="projects-grid">
+                <img
+                  class="projects-bg-1"
+                  src="img/index-page/connected.jpg"
+                  alt="img"
+                />
                 <div class="project-item">
                   <h4>Project One</h4>
                   <div class="card">

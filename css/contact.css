@@ -139,16 +139,18 @@
   display: inline-block;
   width: 100%;
   padding: var(--s-05) var(--s-15);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--s-025);
+  border-radius: var(--s-05);
   color: #e8e8ed;
   font-size: var(--s-0625);
   font-family: inherit;
   cursor: pointer;
   text-align: center;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
 }
