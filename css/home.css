@@ -12,6 +12,7 @@
 .hero::before {
   content: "";
   position: absolute;
+  justify-content: center;
   width: 100%;
   height: 250%;
   background: radial-gradient(
@@ -19,7 +20,7 @@
     rgba(255, 217, 26, 0.35) 0%,
     rgba(220, 170, 40, 0.18) 20%,
     rgba(255, 127, 16, 0.06) 40%,
-    transparent 60%
+    transparent 80%
   );
   pointer-events: none;
   z-index: 0;
@@ -29,7 +30,7 @@
   position: absolute;
   height: calc(var(--s-1) * 42);
   width: auto;
-  z-index: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,6 +96,18 @@ section:nth-child(3) {
   margin-bottom: var(--s-3);
 }
 
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: var(--s-05);
+  padding: var(--s-05) var(--s-075);
+  border-radius: var(--s-05);
+}
+
+.skill-item:first-child {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .carousel {
   overflow: hidden;
   position: relative;
@@ -150,12 +163,12 @@ section:nth-child(3) {
   bottom: var(--s-2);
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.06);
-  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #e8e8ed;
-  padding: var(--s-05) var(--s-1);
+  padding: var(--s-05) var(--s-15);
   border-radius: var(--s-05);
-  font-size: var(--s-05);
+  font-size: var(--s-0625);
   cursor: pointer;
   font-family: inherit;
   text-decoration: none;
@@ -210,8 +223,10 @@ section:nth-child(3) {
 }
 
 .card {
-  background: #252525;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(37, 37, 37, 0.45);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--s-05);
   overflow: hidden;
 }
 
@@ -240,8 +255,16 @@ section:nth-child(3) {
 .card .project-link {
   display: block;
   text-align: center;
-  font-size: var(--s-075);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e8e8ed;
+  padding: var(--s-05) var(--s-15);
+  border-radius: var(--s-05);
+  font-size: var(--s-0625);
   margin-top: var(--s-05);
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
 }
 
 .show-more-btn {
@@ -250,11 +273,13 @@ section:nth-child(3) {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  background: rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-05);
+  padding: var(--s-05) var(--s-075);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #e8e8ed;
-  padding: var(--s-05) var(--s-15);
   border-radius: var(--s-05);
+  color: #e8e8ed;
   font-size: var(--s-0625);
   cursor: pointer;
   font-family: inherit;
@@ -283,7 +308,7 @@ section:not(:first-child) p,
 .hero::after {
   content: "\2193";
   display: block;
-  margin-top: var(--s-2);
+  margin-top: var(--s-8);
   font-size: var(--s-1);
   color: #a0a0a0;
   animation: bounce 2s infinite;

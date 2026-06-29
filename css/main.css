@@ -35,7 +35,6 @@
   scrollbar-width: none;
 }
 
-html,
 body {
   height: 100%;
   margin: 0;
@@ -93,7 +92,7 @@ header .container {
   align-items: center;
   justify-content: space-between;
   max-width: none;
-  margin: 0 var(--s-1);
+  margin: 0 calc(var(--s-1) * -1.2);
 }
 
 header a {
@@ -104,7 +103,7 @@ header a {
 header .left-group {
   display: flex;
   align-items: center;
-  gap: var(--s-1);
+  gap: calc(var(--s-1) * 0.5);
 }
 
 header .profile-pic {
@@ -131,8 +130,23 @@ header .logo em {
   font-style: italic;
 }
 
+header .left-group a {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--s-05) var(--s-075);
+}
+
 header nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-05);
+  padding: var(--s-05) var(--s-075);
   font-size: var(--s-05);
+}
+
+header nav a:first-child {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--s-05);
 }
 
 header nav {
