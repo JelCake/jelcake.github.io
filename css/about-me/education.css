@@ -1,0 +1,21 @@
+.education-title {
+  text-align: center;
+}
+
+.education-section {
+  margin-top: var(--s-3);
+}
+
+.education-item {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--s-05);
+  padding: var(--s-1);
+  margin-bottom: var(--s-1);
+}
+
+.about-bio {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--s-05);
+  padding: var(--s-2);
+  margin-top: var(--s-2);
+}
