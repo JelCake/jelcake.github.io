@@ -157,8 +157,71 @@ header nav {
 
 footer {
   background: #1c1c22;
-  text-align: center;
-  padding: var(--s-1) 0;
-  margin-top: var(--s-5);
+  padding: var(--s-3) 0 var(--s-15);
+  margin-top: var(--s-6);
   color: #8b8b8d;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.footer-center {
+  justify-content: center;
+}
+
+.footer-right {
+  justify-content: flex-end;
+  gap: var(--s-075);
+}
+
+.footer-phone {
+  font-size: var(--s-0625);
+  color: #8b8b8d;
+}
+
+.footer-logo-placeholder {
+  width: 40px;
+  height: 40px;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: var(--s-05);
+}
+
+.social-placeholder {
+  width: 36px;
+  height: 36px;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: var(--s-025);
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: var(--s-05);
+  color: #6b6b6d;
 }

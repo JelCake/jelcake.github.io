@@ -33,3 +33,28 @@
   line-height: 1.5;
   margin: 0;
 }
+
+.about-img-row {
+  display: flex;
+  gap: var(--s-2);
+  align-items: center;
+  margin: var(--s-15) 0;
+}
+
+.about-img-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-img-placeholder {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: var(--s-05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.12);
+  font-size: var(--s-05);
+  background: rgba(255, 255, 255, 0.03);
+}
