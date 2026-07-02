@@ -1,6 +1,7 @@
 .about-hero {
   width: 100%;
-  min-height: 60vh;
+  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +11,7 @@
   margin-top: var(--s-3);
 }
 
-.about-hero h2 {
+.about-hero h1 {
   font-size: var(--s-5);
   text-align: center;
   position: relative;
@@ -30,16 +31,32 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: var(--s-37);
-  height: var(--s-37);
+  transform: translate(-100%, -50%);
+
+  width: auto;
+  height: 100%;
+
   z-index: 0;
-  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.06);
-  font-size: var(--s-2);
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 5%,
+      black 20%,
+      black 75%,
+      transparent 95%
+    ),
+    linear-gradient(
+      to right,
+      transparent 5%,
+      black 20%,
+      black 60%,
+      transparent 95%
+    );
+  mask-composite: intersect;
 }
 
 .profile-circle {
