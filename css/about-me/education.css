@@ -1,8 +1,3 @@
-.education-title {
-  text-align: center;
-  font-size: var(--s-2);
-}
-
 .education-section {
   margin-top: var(--s-3);
 }
@@ -10,8 +5,7 @@
 .about-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0;
+  gap: var(--s-2);
   position: relative;
 }
 
@@ -32,26 +26,14 @@
   transform: translateX(-50%);
 }
 
-.education-item {
+.edu-row {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
   position: relative;
-  width: 45%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--s-05);
-  padding: var(--s-075) var(--s-1);
-  margin-bottom: var(--s-15);
-  background: rgba(37, 37, 37, 0.45);
-  backdrop-filter: blur(6px);
 }
 
-.education-item:nth-child(odd) {
-  align-self: flex-start;
-}
-
-.education-item:nth-child(even) {
-  align-self: flex-end;
-}
-
-.education-item::before {
+.edu-row::before {
   content: "";
   position: absolute;
   top: var(--s-1);
@@ -60,110 +42,97 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.15);
   border: 2px solid rgba(255, 255, 255, 0.3);
+  z-index: 2;
+  left: calc(50% - 6px);
 }
 
-.education-item:nth-child(odd)::before {
-  right: -31px;
+.edu-row::after {
+  display: none;
 }
 
-.education-item:nth-child(even)::before {
-  left: -31px;
+.education-item {
+  position: relative;
+  width: 42%;
+  border-radius: var(--s-05);
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
-.education-item::after {
-  content: "";
+.edu-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--s-05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.08);
+  font-size: var(--s-05);
+}
+
+.edu-overlay {
   position: absolute;
-  top: calc(var(--s-1) + 6px);
-  height: 2px;
-  background: rgba(255, 255, 255, 0.1);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--s-15) var(--s-1) var(--s-075);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  pointer-events: none;
 }
 
-.education-item:nth-child(odd)::after {
-  right: -16px;
-  width: 14px;
-}
-
-.education-item:nth-child(even)::after {
-  left: -16px;
-  width: 14px;
-}
-
-.education-item h4 {
+.edu-overlay h4 {
   font-size: var(--s-1);
   margin: 0 0 var(--s-0125);
+  color: #e8e8ed;
 }
 
-.school {
+.edu-overlay .school {
   font-size: var(--s-0625);
   color: #a1a1aa;
   margin-bottom: var(--s-0125);
 }
 
-.date {
+.edu-overlay .date {
   font-size: var(--s-05);
-  color: rgba(255, 255, 255, 0.3);
-  margin-bottom: var(--s-05);
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.detail {
+.activities-panel p {
   font-size: var(--s-05);
-  color: #a1a1aa;
-  line-height: 1.5;
+  color: #c8c8d0;
+  line-height: 1.7;
+  margin: 0;
+  margin-top: var(--s-05);
+  padding-top: var(--s-05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.about-bio {
-  padding: var(--s-2);
-  margin-top: var(--s-2);
+.history-intro {
+  margin-bottom: var(--s-3);
 }
 
-.bio-phase {
-  font-size: var(--s-0875);
-  margin: var(--s-15) 0 var(--s-05);
-  color: #e8e8ed;
-}
-
-.bio-phase:first-of-type {
-  margin-top: var(--s-1);
-}
-
-.backstory {
-  font-size: var(--s-05);
+.history-intro p {
+  font-size: var(--s-0625);
   color: #a1a1aa;
   line-height: 1.6;
-  margin: var(--s-05) 0;
+  margin: 0;
+  font-style: italic;
+  max-width: 70%;
 }
 
-.activities {
-  margin-top: var(--s-075);
-  padding-top: var(--s-05);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+.edu-backstory {
+  flex: 1;
 }
 
-.activities-heading {
+.edu-backstory p {
   font-size: var(--s-05);
-  font-weight: 800;
-  color: #e8e8ed;
-  display: block;
-  margin-bottom: var(--s-025);
-}
-
-.activities ul {
-  list-style: none;
-  padding: 0;
+  color: #8b8b8d;
+  line-height: 1.7;
   margin: 0;
 }
 
-.activities li {
-  font-size: var(--s-05);
-  color: #a1a1aa;
-  line-height: 1.6;
-  padding-left: var(--s-0625);
-  position: relative;
-}
-
-.activities li::before {
-  content: ">";
-  position: absolute;
-  left: 0;
-  color: rgba(255, 255, 255, 0.3);
+.edu-row:nth-child(odd) .edu-backstory {
+  text-align: right;
 }

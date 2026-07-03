@@ -89,15 +89,17 @@
 .project-item {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 92%;
 }
 
 .project-item:nth-child(odd) {
   align-self: flex-start;
+  margin-left: -4%;
 }
 
 .project-item:nth-child(even) {
   align-self: flex-end;
+  margin-right: -4%;
 }
 
 .project-item h4 {
