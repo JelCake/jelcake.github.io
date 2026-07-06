@@ -1,5 +1,6 @@
 .hero {
   min-height: 100vh;
+  position: sticky;
   height: 100vh;
   display: flex;
   flex-direction: column;
