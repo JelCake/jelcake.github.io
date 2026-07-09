@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Portfolio</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/contact-me/hero.css" />
+    <link rel="stylesheet" href="css/contact-me/form.css" />
+    <link rel="stylesheet" href="css/contact-me/contact.css" />
+  </head>
+  <body>
+    <div id="page">
+      <!-- Header -->
+      <header>
+        <div class="container">
+          <div class="left-group">
+            <div class="profile-pic"></div>
+            <a href="index.html" class="logo"
+              ><strong>Your</strong> <em>Name</em></a
+            >
+          </div>
+          <nav>
+            <a href="index.html">Home</a>
+            <a href="work.html">Work</a>
+            <a href="about.html">About Me</a>
+            <a href="contact.html" class="active">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main content -->
+      <main id="content">
+        <!-- Contact Hero -->
+        <section class="contact-hero" data-observe>
+          <img
+            class="contact-image-bg"
+            src="img/contact-page/desk.jpg"
+            alt="image"
+          />
+          <div class="container">
+            <h1>Contact</h1>
+            <p class="contact-subtitle">
+              Let's connect. Reach out or find me on social media.
+            </p>
+          </div>
+        </section>
+
+        <section data-observe>
+          <div class="container">
+            <div class="contact-form">
+              <h3>Send a Message</h3>
+              <form id="contact-form">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Details -->
+        <section class="contact-details" data-observe>
+          <div class="container">
+            <div class="contact-details-inner">
+              <div class="contact-detail-item">
+                <div class="contact-icon">@</div>
+                <a href="mailto:you@example.com">you@example.com</a>
+              </div>
+              <div class="contact-detail-item">
+                <div class="contact-icon">#</div>
+                <span>[Phone Number]</span>
+              </div>
+              <div class="contact-detail-item">
+                <div class="contact-icon">L</div>
+                <span>City, Country</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer data-observe>
+        <div class="container">
+          <div class="footer-row">
+            <div class="footer-left">
+              <span class="footer-phone">[Phone Number]</span>
+            </div>
+            <div class="footer-center">
+              <div class="footer-logo-placeholder">L</div>
+            </div>
+            <div class="footer-right">
+              <a href="https://github.com/" target="_blank" class="social-link" title="GitHub">GH</a>
+              <a href="https://linkedin.com/in/" target="_blank" class="social-link" title="LinkedIn">LI</a>
+              <a href="https://wa.me/" target="_blank" class="social-link" title="WhatsApp">WA</a>
+              <a href="mailto:you@example.com" class="social-link" title="Email">ML</a>
+            </div>
+          </div>
+          <div class="footer-copy">
+            &copy; 2026 Your Name. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="javaScript/main.js"></script>
+    <script src="javaScript/contact.js"></script>
+  </body>
+</html>

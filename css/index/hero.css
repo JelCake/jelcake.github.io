@@ -1,0 +1,102 @@
+.hero {
+  min-height: 100vh;
+  position: sticky;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  height: 250%;
+  background: radial-gradient(
+    ellipse 70% 50% at 80% 25%,
+    rgba(255, 217, 26, 0.35) 0%,
+    rgba(220, 170, 40, 0.18) 20%,
+    rgba(255, 127, 16, 0.06) 40%,
+    transparent 80%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-image-bg {
+  position: absolute;
+  opacity: 0.8;
+  height: calc(var(--s-1) * 42);
+  width: auto;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* opacity: 0.9; */
+  /* background: linear-gradient(#1e1e2a 15%, #1c1c22 40%); */
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 5%,
+      black 20%,
+      black 75%,
+      transparent 95%
+    ),
+    linear-gradient(
+      to right,
+      transparent 5%,
+      black 20%,
+      black 60%,
+      transparent 95%
+    );
+  mask-composite: intersect;
+  background: rgba(5, 8, 16, 0.55);
+}
+
+.hero h1 {
+  font-size: var(--s-5);
+  text-shadow: -5px 20px 15px rgba(0, 0, 0);
+}
+
+.hero .role,
+.hero .hero-subtitle {
+  text-shadow: -5px 10px 15px rgba(0, 0, 0);
+}
+
+.hero .role,
+.hero .hero-subtitle {
+  font-size: var(--s-0625);
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  position: relative;
+  z-index: 1;
+}
+
+section:nth-child(2) {
+  min-height: var(--section-min);
+  margin-bottom: var(--s-55);
+  position: relative;
+}
+
+section:nth-child(3) {
+  margin-top: var(--s-2);
+  margin-bottom: var(--s-10);
+}
+
+.hero::after {
+  content: "\2193";
+  display: block;
+  margin-top: var(--s-8);
+  font-size: var(--s-1);
+  color: #a0a0a0;
+  animation: bounce 2s infinite;
+}

@@ -1,0 +1,138 @@
+.education-section {
+  margin-top: var(--s-3);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  position: relative;
+}
+
+.about-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.15) 10%,
+    rgba(255, 255, 255, 0.15) 90%,
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+.edu-row {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  position: relative;
+}
+
+.edu-row::before {
+  content: "";
+  position: absolute;
+  top: var(--s-1);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  z-index: 2;
+  left: calc(50% - 6px);
+}
+
+.edu-row::after {
+  display: none;
+}
+
+.education-item {
+  position: relative;
+  width: 42%;
+  border-radius: var(--s-05);
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.edu-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--s-05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.08);
+  font-size: var(--s-05);
+}
+
+.edu-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--s-15) var(--s-1) var(--s-075);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  pointer-events: none;
+}
+
+.edu-overlay h4 {
+  font-size: var(--s-1);
+  margin: 0 0 var(--s-0125);
+  color: #e8e8ed;
+}
+
+.edu-overlay .school {
+  font-size: var(--s-0625);
+  color: #a1a1aa;
+  margin-bottom: var(--s-0125);
+}
+
+.edu-overlay .date {
+  font-size: var(--s-05);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.activities-panel p {
+  font-size: var(--s-05);
+  color: #c8c8d0;
+  line-height: 1.7;
+  margin: 0;
+  margin-top: var(--s-05);
+  padding-top: var(--s-05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.history-intro {
+  margin-bottom: var(--s-3);
+}
+
+.history-intro p {
+  font-size: var(--s-0625);
+  color: #a1a1aa;
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+  max-width: 70%;
+}
+
+.edu-backstory {
+  flex: 1;
+}
+
+.edu-backstory p {
+  font-size: var(--s-05);
+  color: #8b8b8d;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.edu-row:nth-child(odd) .edu-backstory {
+  text-align: right;
+}
