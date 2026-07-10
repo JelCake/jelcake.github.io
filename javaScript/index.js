@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const tick = () => {
+      clearTimeout(timer);
       startTime = Date.now();
       timer = setTimeout(() => {
         goTo(current + 1);
@@ -116,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     highlightSkill(cards[0].dataset.skill);
 
     const resetTimer = () => {
-      clearTimeout(timer);
       remaining = interval;
       tick();
     };
@@ -126,6 +126,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     dots.forEach((dot, i) => {
       dot.addEventListener("click", () => { goTo(i); resetTimer(); });
+    });
+
+    // Click a skill item → jump carousel to that skill's card
+    skillItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const idx = skills.findIndex((s) => s.id === item.dataset.skill);
+        if (idx !== -1) { goTo(idx); resetTimer(); }
+      });
     });
 
     // Pause on hover — stops countdown, resumes on leave from where it left off
@@ -239,11 +247,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ─── Project cards viewport reveal ──────────────────────────────
-  // Each .project-item slides up with staggered delays when entering
-  // the viewport, and reverses out when leaving.
+  // Each .project-item slides in from left or right based on column
+  // position, with staggered delays. Reverses out when leaving.
 
   const projectItems = document.querySelectorAll(".project-item");
   if (projectItems.length > 0) {
+    const cols = 3;
+
+    projectItems.forEach((item, i) => {
+      const col = i % cols;
+      if (col === 0 || col === 2) item.classList.add("from-left");
+      else item.classList.add("from-right");
+    });
+
     const cardObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
