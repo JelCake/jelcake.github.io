@@ -226,6 +226,8 @@
   justify-content: center;
   color: rgba(255, 255, 255, 0.1);
   font-size: var(--s-05);
+  transform: translate3d(0, var(--py, 0px), 0);
+  will-change: transform;
 }
 
 .edu-overlay {
