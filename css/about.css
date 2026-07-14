@@ -39,6 +39,7 @@
   height: auto;
 
   z-index: 0;
+  will-change: transform;
 
   mask-image:
     linear-gradient(
@@ -73,22 +74,25 @@
 }
 
 .fact-card {
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--s-05);
-  padding: var(--s-15) var(--s-2);
-  margin-top: var(--s-2);
-  background: rgba(255, 255, 255, 0.03);
+  max-width: 720px;
+  margin: var(--s-2) auto 0;
+  border: 1px solid var(--border);
+  border-radius: var(--s-075);
+  padding: var(--s-2) var(--s-25);
+  background: var(--surface);
+  backdrop-filter: blur(8px);
   text-align: center;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.25);
 }
 
 .fact-label {
   font-size: var(--s-05);
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.18em;
   display: block;
-  margin-bottom: var(--s-025);
+  margin-bottom: var(--s-0375);
 }
 
 .fact-text {
