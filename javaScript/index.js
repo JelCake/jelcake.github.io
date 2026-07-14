@@ -1,19 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   // ─── Data config ────────────────────────────────────────────────
   // One skill = one carousel card. Add an image/link to fill it in,
   // leave them out for a placeholder. The carousel card count always
   // matches the number of skills.
 
   const skills = [
-    { id: "typescript", name: "TypeScript/JavaScript", image: "img/index-page/code-background.jpg",  link: "work.html" },
-    { id: "nodejs",     name: "Node.js",              image: "img/index-page/cool-face.jpg",        link: "work.html" },
-    { id: "express",    name: "Express",              image: "img/index-page/connected.jpg",        link: "work.html" },
-    { id: "htmlcss",    name: "HTML/CSS" },
-    { id: "java",       name: "Java" },
-    { id: "mysql",      name: "MySQL" },
-    { id: "git",        name: "GIT" },
-    { id: "drawio",     name: "Draw.io" },
+    {
+      id: "typescript",
+      name: "TypeScript/JavaScript",
+      image: "img/index-page/code-background.jpg",
+      link: "work.html",
+    },
+    {
+      id: "nodejs",
+      name: "Node.js",
+      image: "img/index-page/cool-face.jpg",
+      link: "work.html",
+    },
+    {
+      id: "express",
+      name: "Express",
+      image: "img/index-page/connected.jpg",
+      link: "work.html",
+    },
+    { id: "htmlcss", name: "HTML/CSS" },
+    { id: "java", name: "Java" },
+    { id: "mysql", name: "MySQL" },
+    { id: "git", name: "GIT" },
+    { id: "drawio", name: "Draw.io" },
   ];
 
   // ─── Build skills grid ──────────────────────────────────────────
@@ -121,18 +135,32 @@ document.addEventListener("DOMContentLoaded", () => {
       tick();
     };
 
-    if (prevBtn) prevBtn.addEventListener("click", () => { goTo(current - 1); resetTimer(); });
-    if (nextBtn) nextBtn.addEventListener("click", () => { goTo(current + 1); resetTimer(); });
+    if (prevBtn)
+      prevBtn.addEventListener("click", () => {
+        goTo(current - 1);
+        resetTimer();
+      });
+    if (nextBtn)
+      nextBtn.addEventListener("click", () => {
+        goTo(current + 1);
+        resetTimer();
+      });
 
     dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => { goTo(i); resetTimer(); });
+      dot.addEventListener("click", () => {
+        goTo(i);
+        resetTimer();
+      });
     });
 
     // Click a skill item → jump carousel to that skill's card
     skillItems.forEach((item) => {
       item.addEventListener("click", () => {
         const idx = skills.findIndex((s) => s.id === item.dataset.skill);
-        if (idx !== -1) { goTo(idx); resetTimer(); }
+        if (idx !== -1) {
+          goTo(idx);
+          resetTimer();
+        }
       });
     });
 
@@ -169,19 +197,27 @@ document.addEventListener("DOMContentLoaded", () => {
       if (scrambleTriggered || !heroTitle) return;
       scrambleTriggered = true;
 
-      const original = heroTitle.innerText;
+      const lines = heroTitle.innerText.split("\n");
+      const lineLengths = lines.map((l) => l.length);
+      const totalLength = lineLengths.reduce((a, b) => a + b, 0);
       let revealed = 0;
 
       const interval = setInterval(() => {
-        heroTitle.innerText = original
-          .split("")
-          .map((letter, i) => {
-            if (i < revealed) return letter;
-            return scrambleChars[Math.floor(Math.random() * 26)];
-          })
-          .join("");
+        let charIndex = 0;
+        const result = lines.map((line, li) => {
+          const start = charIndex;
+          charIndex += lineLengths[li];
+          return line
+            .split("")
+            .map((letter, i) => {
+              if (start + i < revealed) return letter;
+              return scrambleChars[Math.floor(Math.random() * 26)];
+            })
+            .join("");
+        });
+        heroTitle.innerText = result.join("\n");
 
-        if (revealed < original.length) {
+        if (revealed < totalLength) {
           revealed++;
         } else {
           clearInterval(interval);
@@ -220,31 +256,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ─── Scroll reveal observer ─────────────────────────────────────
-  // Adds/removes .in-view on sections with [data-observe] when they
-  // enter or leave the viewport. The hero is excluded because it uses
-  // the load-based animation above.
-
-  document.querySelectorAll("[data-observe]").forEach((el) => {
-    if (el.classList.contains("hero")) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle("in-view", entry.isIntersecting);
-          window.dispatchEvent(
-            new CustomEvent("viewport:change", {
-              detail: {
-                element: entry.target,
-                isIntersecting: entry.isIntersecting,
-              },
-            }),
-          );
-        });
-      },
-      { threshold: 0 },
-    );
-    observer.observe(el);
-  });
+  // Main.js handles [data-observe] with clip-path reveal.
+  // This section only handles project cards with staggered timing.
 
   // ─── Project cards viewport reveal ──────────────────────────────
   // Each .project-item slides in from left or right based on column
@@ -256,8 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projectItems.forEach((item, i) => {
       const col = i % cols;
-      if (col === 0 || col === 2) item.classList.add("from-left");
-      else item.classList.add("from-right");
+      item.classList.add(col % 2 === 0 ? "from-left" : "from-right");
     });
 
     const cardObserver = new IntersectionObserver(
@@ -266,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
           entry.target.classList.toggle("revealed", entry.isIntersecting);
         });
       },
-      { threshold: 0.2 },
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
     );
 
     projectItems.forEach((item) => cardObserver.observe(item));

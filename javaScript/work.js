@@ -25,31 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
           entry.target.classList.toggle("revealed", entry.isIntersecting);
         });
       },
-      { threshold: 0.2 },
+      { threshold: 0.1, rootMargin: "0px 0px -80px 0px" },
     );
 
     projectItems.forEach((item) => cardObserver.observe(item));
   }
-
-  // ─── Scroll reveal observer ─────────────────────────────────────
-
-  document.querySelectorAll("[data-observe]").forEach((el) => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle("in-view", entry.isIntersecting);
-          window.dispatchEvent(
-            new CustomEvent("viewport:change", {
-              detail: {
-                element: entry.target,
-                isIntersecting: entry.isIntersecting,
-              },
-            }),
-          );
-        });
-      },
-      { threshold: 0 },
-    );
-    observer.observe(el);
-  });
 });

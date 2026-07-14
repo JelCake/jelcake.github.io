@@ -31,46 +31,35 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-100%, -50%);
+  transform: translate(-50%, -50%);
 
+  max-width: 80%;
+  max-height: 80%;
   width: auto;
-  height: 100%;
+  height: auto;
 
   z-index: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   mask-image:
     linear-gradient(
       to bottom,
-      transparent 5%,
-      black 20%,
-      black 75%,
-      transparent 95%
+      transparent 0%,
+      black 12%,
+      black 60%,
+      transparent 88%
     ),
     linear-gradient(
       to right,
-      transparent 5%,
-      black 20%,
-      black 60%,
-      transparent 95%
+      transparent 0%,
+      black 12%,
+      black 50%,
+      transparent 85%
     );
   mask-composite: intersect;
 }
 
 .profile-circle {
-  position: absolute;
-  top: 50%;
-  right: 25%;
-  transform: translateY(-50%);
-  width: var(--s-11);
-  height: var(--s-11);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  z-index: 1;
-  pointer-events: none;
+  display: none;
 }
 
 #content {
@@ -110,76 +99,128 @@
 }
 
 .education-section {
-  margin-top: var(--s-3);
+  margin-top: var(--s-4);
+}
+
+.section-kicker {
+  display: block;
+  text-align: center;
+  font-size: var(--s-05);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: var(--s-0375);
+}
+
+.timeline-title {
+  text-align: center;
+  font-size: var(--s-3);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--s-2);
+}
+
+.timeline-title em {
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+.history-intro {
+  margin: 0 auto var(--s-4);
+  max-width: 640px;
+  text-align: center;
+}
+
+.history-intro p {
+  font-size: var(--s-0875);
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin: 0;
+  font-style: italic;
 }
 
 .about-content {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--s-2);
-  position: relative;
+  gap: var(--s-4);
 }
 
 .about-content::before {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 8px;
+  bottom: 8px;
   left: 50%;
   width: 2px;
+  transform: translateX(-50%);
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(255, 255, 255, 0.15) 10%,
-    rgba(255, 255, 255, 0.15) 90%,
+    var(--border) 6%,
+    var(--border) 94%,
     transparent
   );
-  transform: translateX(-50%);
 }
 
 .edu-row {
-  display: flex;
-  align-items: center;
-  gap: var(--s-2);
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+  align-items: center;
 }
 
 .edu-row::before {
   content: "";
   position: absolute;
-  top: var(--s-1);
-  width: 12px;
-  height: 12px;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: #1a1a18;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 5px rgba(227, 168, 87, 0.12);
   z-index: 2;
-  left: calc(50% - 6px);
+  transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
 }
 
-.edu-row::after {
-  display: none;
+.edu-row:hover::before {
+  box-shadow: 0 0 0 7px rgba(227, 168, 87, 0.2);
+  transform: translate(-50%, -50%) scale(1.15);
 }
 
 .education-item {
   position: relative;
-  width: 42%;
-  border-radius: var(--s-05);
+  width: 100%;
+  border-radius: var(--s-075);
   overflow: hidden;
-  cursor: pointer;
-  flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: rgba(26, 26, 24, 0.5);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 0.45s var(--ease),
+    border-color 0.45s var(--ease),
+    box-shadow 0.45s var(--ease);
+}
+
+.education-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
 }
 
 .edu-img {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--s-05);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.1);
   font-size: var(--s-05);
 }
 
@@ -188,62 +229,61 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: var(--s-15) var(--s-1) var(--s-075);
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  padding: var(--s-15) var(--s-1) var(--s-1);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
   pointer-events: none;
 }
 
 .edu-overlay h4 {
-  font-size: var(--s-1);
-  margin: 0 0 var(--s-0125);
-  color: #e8e8ed;
+  font-size: var(--s-15);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--s-025);
+  color: #fff;
 }
 
 .edu-overlay .school {
   font-size: var(--s-0625);
-  color: #a1a1aa;
-  margin-bottom: var(--s-0125);
+  color: var(--text-dim);
+  margin-bottom: var(--s-025);
 }
 
 .edu-overlay .date {
   font-size: var(--s-05);
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.activities-panel p {
-  font-size: var(--s-05);
-  color: #c8c8d0;
-  line-height: 1.7;
-  margin: 0;
-  margin-top: var(--s-05);
-  padding-top: var(--s-05);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.history-intro {
-  margin-bottom: var(--s-3);
-}
-
-.history-intro p {
-  font-size: var(--s-0625);
-  color: #a1a1aa;
-  line-height: 1.6;
-  margin: 0;
-  font-style: italic;
-  max-width: 70%;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .edu-backstory {
-  flex: 1;
+  padding: var(--s-1) var(--s-15);
 }
 
 .edu-backstory p {
-  font-size: var(--s-05);
-  color: #8b8b8d;
+  font-size: var(--s-0875);
+  color: var(--text-dim);
   line-height: 1.7;
   margin: 0;
 }
 
 .edu-row:nth-child(odd) .edu-backstory {
   text-align: right;
+}
+
+@media (max-width: 768px) {
+  .about-content::before {
+    left: 9px;
+  }
+  .edu-row {
+    grid-template-columns: 1fr;
+    gap: var(--s-1);
+    padding-left: var(--s-2);
+  }
+  .edu-row::before {
+    left: 9px;
+  }
+  .edu-row:nth-child(odd) .edu-backstory,
+  .edu-backstory {
+    text-align: left;
+  }
 }
