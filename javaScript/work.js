@@ -30,4 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projectItems.forEach((item) => cardObserver.observe(item));
   }
+
+  // ─── Page-specific parallax ────────────────────────────────────
+  initHeroParallax(".work-image-bg");
+  initContentParallax(".projects-bg-1, .card-img");
 });

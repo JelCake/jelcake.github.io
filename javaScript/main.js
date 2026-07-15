@@ -49,26 +49,28 @@ if (!prefersReducedMotion) {
   });
 }
 
-// ─── Scroll-linked parallax on hero backgrounds ──────────────────
-// Hero images move at a slower rate than the scroll, creating depth.
-// Only starts after the hero has finished its entrance animation.
+// ─── Reusable parallax helpers ───────────────────────────────────
+// Page-specific scripts (index.js / work.js / about.js / contact.js)
+// call these with the selectors that exist on their own page, so the
+// parallax logic lives in one shared place while the triggers stay
+// per-page. Carousels (.photo-card-img) are intentionally excluded.
 
-const heroBgs = document.querySelectorAll(".hero-image-bg, .work-image-bg, .about-image-bg, .contact-image-bg");
+function initHeroParallax(selector) {
+  const bgs = document.querySelectorAll(selector);
+  if (bgs.length === 0) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-if (heroBgs.length > 0 && !prefersReducedMotion) {
   let ticking = false;
-  let parallaxReady = false;
-
-  // Wait for hero animation to finish before enabling parallax
-  setTimeout(() => { parallaxReady = true; }, 1500);
+  let ready = false;
+  // Wait for the hero entrance animation before enabling parallax
+  setTimeout(() => { ready = true; }, 1500);
 
   window.addEventListener("scroll", () => {
-    if (!ticking && parallaxReady) {
+    if (!ticking && ready) {
       requestAnimationFrame(() => {
         const scrollY = window.scrollY;
-        heroBgs.forEach((bg) => {
-          const speed = 0.25;
-          bg.style.transform = `translate(-50%, calc(-50% + ${scrollY * speed}px))`;
+        bgs.forEach((bg) => {
+          bg.style.transform = `translate(-50%, calc(-50% + ${scrollY * 0.25}px))`;
         });
         ticking = false;
       });
@@ -77,48 +79,46 @@ if (heroBgs.length > 0 && !prefersReducedMotion) {
   });
 }
 
-// ─── Content pictures parallax (hero-style drift, carousel excluded) ─
-// Mirrors the hero background parallax: each picture translates on scroll
-// at its own speed so it moves independently from the text around it.
+function initContentParallax(selector) {
+  const pics = document.querySelectorAll(selector);
+  if (pics.length === 0) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-const contentPics = document.querySelectorAll(
-  ".skills-bg-1, .projects-bg-1, .card-img, .edu-img",
-);
-
-if (contentPics.length > 0 && !prefersReducedMotion) {
   const measure = () => {
-    contentPics.forEach((el) => {
+    pics.forEach((el) => {
       el.style.setProperty("--py", "0px");
       const rect = el.getBoundingClientRect();
       el._baseCenter = rect.top + window.scrollY + rect.height / 2;
       el._speed =
         parseFloat(el.dataset.speed) ||
-        (el.classList.contains("card-img") || el.classList.contains("edu-img")
+        (el.classList.contains("card-img") ||
+          el.classList.contains("edu-img") ||
+          el.classList.contains("edu-year")
           ? 0.05
           : 0.14);
     });
   };
 
-  let cTicking = false;
+  let ticking = false;
 
-  const applyContentParallax = () => {
+  const apply = () => {
     const viewportCenter = window.scrollY + window.innerHeight / 2;
-    contentPics.forEach((el) => {
+    pics.forEach((el) => {
       const distance = (el._baseCenter || 0) - viewportCenter;
       el.style.setProperty("--py", `${(-distance * el._speed).toFixed(2)}px`);
     });
-    cTicking = false;
+    ticking = false;
   };
 
   measure();
-  applyContentParallax();
+  apply();
 
   window.addEventListener(
     "scroll",
     () => {
-      if (!cTicking) {
-        requestAnimationFrame(applyContentParallax);
-        cTicking = true;
+      if (!ticking) {
+        requestAnimationFrame(apply);
+        ticking = true;
       }
     },
     { passive: true },
@@ -126,7 +126,7 @@ if (contentPics.length > 0 && !prefersReducedMotion) {
 
   window.addEventListener("resize", () => {
     measure();
-    applyContentParallax();
+    apply();
   });
 }
 

@@ -148,63 +148,52 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--s-4);
-}
-
-.about-content::before {
-  content: "";
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 50%;
-  width: 2px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--border) 6%,
-    var(--border) 94%,
-    transparent
-  );
+  gap: clamp(11rem, 22vw, 26rem);
 }
 
 .edu-row {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--s-4);
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: var(--s-15);
+  padding: var(--s-2) var(--s-1);
 }
 
-.edu-row::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 18px;
-  height: 18px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: #1a1a18;
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 0 5px rgba(227, 168, 87, 0.12);
-  z-index: 2;
-  transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
-}
-
-.edu-row:hover::before {
-  box-shadow: 0 0 0 7px rgba(227, 168, 87, 0.2);
-  transform: translate(-50%, -50%) scale(1.15);
+/* Pinned centre year — pure CSS, no JS. Sticks to the middle of the
+   screen while its section is in view, then hands off to the next
+   section's year as you scroll. Shows the full range of the section. */
+.edu-pinned-year {
+  position: sticky;
+  top: 50vh;
+  transform: translateY(-50%);
+  z-index: 0;
+  font-size: clamp(8rem, 30vw, 26rem);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  opacity: 0.1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .education-item {
   position: relative;
-  width: 100%;
+  z-index: 1;
+  width: min(640px, 100%);
   border-radius: var(--s-075);
   overflow: hidden;
   border: 1px solid var(--border);
-  background: rgba(26, 26, 24, 0.5);
+  background: rgba(26, 26, 24, 0.55);
+  backdrop-filter: blur(6px);
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
+  transform: translate3d(0, var(--py, 0px), 0);
+  will-change: transform;
   transition:
     transform 0.45s var(--ease),
     border-color 0.45s var(--ease),
@@ -212,7 +201,7 @@
 }
 
 .education-item:hover {
-  transform: translateY(-4px);
+  transform: translate3d(0, calc(var(--py, 0px) - 4px), 0);
   border-color: var(--border-strong);
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
 }
@@ -262,7 +251,13 @@
 }
 
 .edu-backstory {
-  padding: var(--s-1) var(--s-15);
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  padding: 0 var(--s-15);
+  text-align: center;
+  transform: translate3d(0, var(--py, 0px), 0);
+  will-change: transform;
 }
 
 .edu-backstory p {
@@ -272,24 +267,28 @@
   margin: 0;
 }
 
-.edu-row:nth-child(odd) .edu-backstory {
-  text-align: right;
-}
-
 @media (max-width: 768px) {
-  .about-content::before {
-    left: 9px;
+  .edu-year {
+    font-size: clamp(5rem, 30vw, 12rem);
+    opacity: 0.05;
   }
-  .edu-row {
-    grid-template-columns: 1fr;
-    gap: var(--s-1);
-    padding-left: var(--s-2);
+  .edu-year-start {
+    left: 50%;
+    top: 28%;
   }
-  .edu-row::before {
-    left: 9px;
+  .edu-year-end {
+    left: 50%;
+    top: 72%;
   }
-  .edu-row:nth-child(odd) .edu-backstory,
-  .edu-backstory {
-    text-align: left;
+  .education-item {
+    width: 100%;
+  }
+  .edu-pinned-year {
+    font-size: clamp(6rem, 34vw, 14rem);
+  }
+  .edu-year,
+  .edu-year-start,
+  .edu-year-end {
+    display: none;
   }
 }

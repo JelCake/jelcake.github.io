@@ -21,4 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     observer.observe(el);
   });
+
+  // ─── Page-specific parallax ────────────────────────────────────
+  initHeroParallax(".contact-image-bg");
 });
