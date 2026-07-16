@@ -260,18 +260,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // This section only handles project cards with staggered timing.
 
   // ─── Project cards viewport reveal ──────────────────────────────
-  // Each .project-item slides in from left or right based on column
-  // position, with staggered delays. Reverses out when leaving.
+  // Each .project-item fades up and scales in (staggered via CSS
+  // transition-delays) when it enters the viewport.
 
   const projectItems = document.querySelectorAll(".project-item");
   if (projectItems.length > 0) {
-    const cols = 3;
-
-    projectItems.forEach((item, i) => {
-      const col = i % cols;
-      item.classList.add(col % 2 === 0 ? "from-left" : "from-right");
-    });
-
     const cardObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
