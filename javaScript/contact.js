@@ -1,4 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ─── Hero entrance animation ──────────────────────────────────────
+
+  const contactHero = document.querySelector(".contact-hero");
+  const contactImages = document.querySelectorAll("img");
+
+  const startContactAnimation = () => {
+    if (contactHero) contactHero.classList.add("animate-in");
+  };
+
+  if (contactImages.length === 0) {
+    startContactAnimation();
+  } else {
+    let loaded = 0;
+    contactImages.forEach((img) => {
+      if (img.complete) {
+        loaded++;
+        if (loaded >= contactImages.length) startContactAnimation();
+      } else {
+        img.addEventListener("load", () => {
+          loaded++;
+          if (loaded >= contactImages.length) startContactAnimation();
+        });
+        img.addEventListener("error", () => {
+          loaded++;
+          if (loaded >= contactImages.length) startContactAnimation();
+        });
+      }
+    });
+  }
+
   document.querySelectorAll("[data-observe]").forEach((el) => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -11,9 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 isIntersecting: entry.isIntersecting,
               },
             }),
-          );
-          console.log(
-            `Viewport: ${entry.target.className} is ${entry.isIntersecting ? "in" : "out of"} view`,
           );
         });
       },

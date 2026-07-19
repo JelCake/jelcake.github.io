@@ -10,20 +10,23 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "TypeScript/JavaScript",
       image: "img/index-page/code-background.jpg",
       link: "work.html",
+      filter: "web",
     },
     {
       id: "nodejs",
       name: "Node.js",
       image: "img/index-page/cool-face.jpg",
       link: "work.html",
+      filter: "web",
     },
     {
       id: "express",
       name: "Express",
       image: "img/index-page/connected.jpg",
       link: "work.html",
+      filter: "web",
     },
-    { id: "htmlcss", name: "HTML/CSS" },
+    { id: "htmlcss", name: "HTML/CSS", filter: "web" },
     { id: "java", name: "Java" },
     { id: "mysql", name: "MySQL" },
     { id: "git", name: "GIT" },
@@ -61,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (skill.image) {
         card.innerHTML = `
           <img class="photo-card-img" src="${skill.image}" alt="${skill.name}">
-          <a class="photo-card-btn" href="${skill.link || "#"}">
+          <a class="photo-card-btn" href="${skill.link || "#"}${skill.filter ? `?filter=${skill.filter}` : ""}#projects">
             View Project using <em>${skill.name}</em>
           </a>`;
       } else {
@@ -275,6 +278,26 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     projectItems.forEach((item) => cardObserver.observe(item));
+  }
+
+  // ─── Skill items viewport reveal ────────────────────────────────
+  // Each skill-item fades up with a stagger delay as it enters.
+
+  const skillItems = document.querySelectorAll(".skill-item");
+  if (skillItems.length > 0) {
+    const skillObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("skill-revealed", entry.isIntersecting);
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    skillItems.forEach((item, i) => {
+      item.style.setProperty("--i", i);
+      skillObserver.observe(item);
+    });
   }
 
   // ─── Page-specific parallax ────────────────────────────────────
