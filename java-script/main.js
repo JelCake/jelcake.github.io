@@ -1,35 +1,33 @@
 // ─── Page transitions ─────────────────────────────────────────────
-// Fades overlay in on link click, navigates, then fades content in
-// on load.
+// Shows the loader on link click, navigates after a brief delay.
 
-const overlay = document.querySelector(".page-transition");
 const pageEl = document.getElementById("page");
+const loader = document.querySelector(".loader");
 
-const TRANSITION_MS = 1600;
+const TRANSITION_MS = 800;
 
 if (pageEl) pageEl.classList.add("page-enter");
 
-if (overlay) {
+if (loader) {
   document.querySelectorAll('a[href*=".html"]').forEach((link) => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
       if (!href || href === window.location.pathname.split("/").pop()) return;
       e.preventDefault();
 
-      overlay.classList.add("active");
+      loader.style.zIndex = "";
+      loader.style.background = "";
+      loader.classList.remove("hidden");
+      loader.style.display = "";
 
       setTimeout(() => { window.location.href = href; }, TRANSITION_MS);
     });
   });
 
   window.addEventListener("pageshow", (e) => {
-    // BF cache: clean stale overlay state silently.
     if (e.persisted) {
-      overlay.style.transition = "none";
-      overlay.classList.remove("active");
-      overlay.classList.remove("show");
-      void overlay.offsetHeight;
-      overlay.style.transition = "";
+      loader.classList.add("hidden");
+      loader.style.display = "";
     }
   });
 }
@@ -89,7 +87,6 @@ function initHeroParallax(selector) {
 
   let ticking = false;
   let ready = false;
-  // Wait for the hero entrance animation before enabling parallax
   setTimeout(() => { ready = true; }, 1500);
 
   window.addEventListener("scroll", () => {
@@ -230,3 +227,10 @@ function initMobileNav() {
 }
 
 initMobileNav();
+
+// ─── Auto-update copyright year ──────────────────────────────────
+const footerCopy = document.querySelector(".footer-copy");
+if (footerCopy) {
+  const year = new Date().getFullYear();
+  footerCopy.textContent = footerCopy.textContent.replace(/\d{4}/, year);
+}

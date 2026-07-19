@@ -100,7 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
     cardObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          entry.target.classList.toggle("revealed", entry.isIntersecting);
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            cardObserver.unobserve(entry.target);
+          }
         });
       },
       { threshold: 0.1, rootMargin: "0px 0px -80px 0px" },
