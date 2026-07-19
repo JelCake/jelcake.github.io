@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
+    <div class="page-transition"></div>
     <div id="page">
       <!-- Header -->
-      <header>
+      <header class="over-orange">
         <div class="container">
           <div class="left-group">
             <div class="profile-pic"></div>
@@ -22,7 +23,7 @@
             <a href="index.html" class="active">Home</a>
             <a href="work.html">Work</a>
             <a href="about.html">About Me</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html">Contact Me</a>
           </nav>
         </div>
       </header>
@@ -60,65 +61,17 @@
 
         <!-- What I Have Worked With -->
         <section id="skills" data-observe>
-          <h3 class="skills-title"><em>What I Have Worked With</em></h3>
+          <span class="section-kicker">Expertise</span>
+          <h2 class="section-title">What I Have <em>Worked With</em></h2>
           <div class="skill-and-img">
             <div>
               <div class="container skills-section">
-                <div class="skills-grid">
-                  <div class="skill-item">
-                    <div class="skill-icon"></div>
-                    <span class="skill-label">TypeScript/JavaScript</span>
-                  </div>
-                  <div class="skill-item">
-                    <div class="skill-icon"></div>
-                    <span class="skill-label">Node.js</span>
-                  </div>
-                  <div class="skill-item">
-                    <div class="skill-icon"></div>
-                    <span class="skill-label">Express</span>
-                  </div>
-                  <div class="skill-item">
-                    <div class="skill-icon"></div>
-                    <span class="skill-label">HTML/CSS</span>
-                  </div>
-                  <div class="skill-item">
-                    <div class="skill-icon"></div>
-                    <span class="skill-label">Java</span>
-                  </div>
-                  <div class="skill-item">
-                    <div class="skill-icon"></div>
-                    <span class="skill-label">MySQL</span>
-                  </div>
-                  <div class="skill-item">
-                    <div class="skill-icon"></div>
-                    <span class="skill-label">GIT</span>
-                  </div>
-                  <div class="skill-item">
-                    <div class="skill-icon"></div>
-                    <span class="skill-label">Draw.io</span>
-                  </div>
-                </div>
+                <div class="skills-grid"></div>
                 <div class="carousel">
-                  <div class="carousel-track">
-                    <div class="photo-card">
-                      <div class="photo-card-img">TEST</div>
-                      <a class="photo-card-btn" href="work.html">
-                        View Project using <em>Skill</em>
-                      </a>
-                    </div>
-                    <div class="photo-card">
-                      <div class="photo-card-img">TEST</div>
-                      <a class="photo-card-btn" href="work.html">
-                        View Project using <em>Skill</em>
-                      </a>
-                    </div>
-                    <div class="photo-card">
-                      <div class="photo-card-img">TEST</div>
-                      <a class="photo-card-btn" href="work.html">
-                        View Project using <em>Skill</em>
-                      </a>
-                    </div>
-                  </div>
+                  <div class="carousel-track"></div>
+                  <button class="carousel-arrow prev" aria-label="Previous">&#8249;</button>
+                  <button class="carousel-arrow next" aria-label="Next">&#8250;</button>
+                  <div class="carousel-dots"></div>
                 </div>
               </div>
             </div>
@@ -135,7 +88,8 @@
         <!-- Recent Projects & Achievements -->
         <section id="projects" data-observe>
           <div class="container">
-            <h3 class="project-title">Projects &amp; <em>Achievements</em></h3>
+            <span class="section-kicker">Selected Work</span>
+            <h2 class="section-title">Projects &amp; <em>Achievements</em></h2>
             <div class="projects-wrapper">
               <div class="projects-grid">
                 <img
@@ -179,7 +133,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="project-item faded">
+                <div class="project-item">
                   <h4>Project Four</h4>
                   <div class="card">
                     <div class="card-img">[Image]</div>
@@ -191,7 +145,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="project-item faded">
+                <div class="project-item">
                   <h4>Project Five</h4>
                   <div class="card">
                     <div class="card-img">[Image]</div>
@@ -203,7 +157,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="project-item faded">
+                <div class="project-item">
                   <h4>Project Six</h4>
                   <div class="card">
                     <div class="card-img">[Image]</div>
@@ -216,19 +170,16 @@
                   </div>
                 </div>
               </div>
-              <a class="show-more-btn" href="work.html">View My Work</a>
+              <a class="show-more-btn" href="work.html#projects">View My Work</a>
             </div>
           </div>
         </section>
       </main>
 
       <!-- Footer -->
-      <footer data-observe>
+      <footer class="on-orange" data-observe>
         <div class="container">
           <div class="footer-row">
-            <div class="footer-left">
-              <span class="footer-phone">[Phone Number]</span>
-            </div>
             <div class="footer-center">
               <div class="footer-logo-placeholder">L</div>
             </div>

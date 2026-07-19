@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/about.css" />
   </head>
   <body>
+    <div class="page-transition"></div>
     <div id="page">
       <!-- Header -->
       <header>
@@ -22,7 +23,7 @@
             <a href="index.html">Home</a>
             <a href="work.html">Work</a>
             <a href="about.html" class="active">About Me</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html">Contact Me</a>
           </nav>
         </div>
       </header>
@@ -34,11 +35,17 @@
           <div class="profile-circle"></div>
           <img
             class="about-image-bg"
-            src="img/about-me-page/watched.jpg"
+            src="img/about-me-page/diego-sanchez.jpg"
             alt="image"
           />
           <div class="container">
             <h1>About Me</h1>
+            <p class="about-tagline">
+              Developer &middot; Designer &middot; Lifelong Learner
+            </p>
+            <p class="about-subtitle">
+              A bit about my journey, interests, and what drives me.
+            </p>
           </div>
         </section>
 
@@ -56,74 +63,83 @@
         <!-- History & Education -->
         <section class="education-section" data-observe>
           <div class="container">
+            <span class="section-kicker">My Journey</span>
+            <h2 class="timeline-title">Education &amp; Experience</h2>
             <div class="history-intro">
               <p>
                 Before tech took over my life, I was deep into art, basketball, photography, and a handful of random hobbies. Some stuck more than others.
               </p>
             </div>
             <div class="about-content">
+              <div class="tl-line"></div>
+              <div class="tl-line-fill"></div>
               <div class="edu-row">
-                <div class="education-item" data-observe>
-                  <div class="edu-img">[Uni Photo]</div>
+                <div class="tl-dot" style="--i: 0"></div>
+                <div class="edu-year-bg" aria-hidden="true">2018 – 2022</div>
+                <div class="education-item" data-observe data-speed="0.06" data-year="2018 – 2022">
+                  <div class="edu-img" data-speed="0.05">[Uni Photo]</div>
                   <div class="edu-overlay">
                     <h4>University Name</h4>
                     <div class="school">Bachelor of Science in Computer Science</div>
-                    <div class="date">2018 - 2022</div>
                   </div>
                 </div>
-                <div class="edu-backstory">
+                <div class="edu-backstory" data-speed="0.06">
                   <p>[placeholder]</p>
                 </div>
               </div>
               <div class="edu-row">
-                <div class="edu-backstory">
-                  <p>[placeholder]</p>
-                </div>
-                <div class="education-item" data-observe>
-                  <div class="edu-img">[School Photo]</div>
+                <div class="tl-dot" style="--i: 1"></div>
+                <div class="edu-year-bg" aria-hidden="true">2014 – 2018</div>
+                <div class="education-item" data-observe data-speed="0.06" data-year="2014 – 2018">
+                  <div class="edu-img" data-speed="0.05">[School Photo]</div>
                   <div class="edu-overlay">
                     <h4>High School Name</h4>
                     <div class="school">High School Diploma</div>
-                    <div class="date">2014 - 2018</div>
                   </div>
+                </div>
+                <div class="edu-backstory" data-speed="0.06">
+                  <p>[placeholder]</p>
                 </div>
               </div>
               <div class="edu-row">
-                <div class="education-item" data-observe>
-                  <div class="edu-img">[Tech Uni Photo]</div>
+                <div class="tl-dot" style="--i: 2"></div>
+                <div class="edu-year-bg" aria-hidden="true">2022 – 2024</div>
+                <div class="education-item" data-observe data-speed="0.06" data-year="2022 – 2024">
+                  <div class="edu-img" data-speed="0.05">[Tech Uni Photo]</div>
                   <div class="edu-overlay">
                     <h4>Tech University</h4>
                     <div class="school">Master of Science in Software Engineering</div>
-                    <div class="date">2022 - 2024</div>
                   </div>
                 </div>
-                <div class="edu-backstory">
+                <div class="edu-backstory" data-speed="0.06">
                   <p>[placeholder]</p>
                 </div>
               </div>
               <div class="edu-row">
-                <div class="edu-backstory">
-                  <p>[placeholder]</p>
-                </div>
-                <div class="education-item" data-observe>
-                  <div class="edu-img">[Cert Photo]</div>
+                <div class="tl-dot" style="--i: 3"></div>
+                <div class="edu-year-bg" aria-hidden="true">2023</div>
+                <div class="education-item" data-observe data-speed="0.06" data-year="2023">
+                  <div class="edu-img" data-speed="0.05">[Cert Photo]</div>
                   <div class="edu-overlay">
                     <h4>Cloud Provider</h4>
                     <div class="school">Cloud Certification</div>
-                    <div class="date">2023</div>
                   </div>
+                </div>
+                <div class="edu-backstory" data-speed="0.06">
+                  <p>[placeholder]</p>
                 </div>
               </div>
               <div class="edu-row">
-                <div class="education-item" data-observe>
-                  <div class="edu-img">[Bootcamp Photo]</div>
+                <div class="tl-dot" style="--i: 4"></div>
+                <div class="edu-year-bg" aria-hidden="true">2024</div>
+                <div class="education-item" data-observe data-speed="0.06" data-year="2024">
+                  <div class="edu-img" data-speed="0.05">[Bootcamp Photo]</div>
                   <div class="edu-overlay">
                     <h4>Bootcamp Name</h4>
                     <div class="school">Full-Stack Development Bootcamp</div>
-                    <div class="date">2024</div>
                   </div>
                 </div>
-                <div class="edu-backstory">
+                <div class="edu-backstory" data-speed="0.06">
                   <p>[placeholder]</p>
                 </div>
               </div>
@@ -133,12 +149,9 @@
       </main>
 
       <!-- Footer -->
-      <footer data-observe>
+      <footer class="on-orange" data-observe>
         <div class="container">
           <div class="footer-row">
-            <div class="footer-left">
-              <span class="footer-phone">[Phone Number]</span>
-            </div>
             <div class="footer-center">
               <div class="footer-logo-placeholder">L</div>
             </div>
