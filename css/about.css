@@ -241,6 +241,12 @@
   animation-delay: calc(var(--i) * 0.25s);
 }
 
+.edu-row:nth-of-type(1) .tl-dot { --i: 0; }
+.edu-row:nth-of-type(2) .tl-dot { --i: 1; }
+.edu-row:nth-of-type(3) .tl-dot { --i: 2; }
+.edu-row:nth-of-type(4) .tl-dot { --i: 3; }
+.edu-row:nth-of-type(5) .tl-dot { --i: 4; }
+
 .edu-year-bg {
   position: absolute;
   top: 50%;
