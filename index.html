@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | Portfolio</title>
-    <link rel="icon" type="image/svg+xml" href="img/logo-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="img/jr-logo-script.svg" />
+    <meta property="og:image" content="img/preview.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:title" content="Jelani R — Developer" />
+    <meta property="og:description" content="A developer focused on databases — writing queries, optimizing performance, and working with data." />
+    <meta property="og:type" content="website" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/index.css" />
   </head>
@@ -15,8 +21,7 @@
     <header class="over-orange">
       <div class="container">
         <a href="index.html" class="logo">
-          <img class="logo-icon" src="img/logo-icon.svg" alt="" />
-          Your Name
+          <img class="logo-icon" src="img/jr-logo-script.svg" alt="JR" />
         </a>
         <nav>
           <a href="index.html" class="active">Home</a>
@@ -41,19 +46,15 @@
             <div class="hero-text">
               <div class="hero-title">
                 <h1>
-                  <p class="hero-left">Software</p>
-                  <p class="hero-right">Engineer</p>
+                  <p class="hero-center">I am Jelani R.</p>
+                  <p class="hero-dev">a developer</p>
                 </h1>
               </div>
-              <p>
-                Computer Science Student &middot; Frontend Intern at Company
+              <p class="hero-tagline">
+                I do a bit of everything across software, but these days I'm mostly working with databases.
               </p>
               <p class="hero-subtitle">
-                I'm a developer with experience building modern web
-                applications. I enjoy turning complex problems into simple,
-                beautiful, and intuitive solutions. When I'm not coding, you'll
-                find me exploring new technologies, writing, or enjoying the
-                outdoors.
+                Writing queries, optimizing performance, and working with data — that's the bulk of what I do day to day.
               </p>
             </div>
           </div>
@@ -61,7 +62,6 @@
 
         <!-- What I Have Worked With -->
         <section id="skills" data-observe>
-          <span class="section-kicker">Expertise</span>
           <h2 class="section-title">What I Have <em>Worked With</em></h2>
           <div class="skill-and-img">
             <div>
@@ -88,7 +88,6 @@
         <!-- Recent Projects & Achievements -->
         <section id="projects" data-observe>
           <div class="container">
-            <span class="section-kicker">Selected Work</span>
             <h2 class="section-title">Projects &amp; <em>Achievements</em></h2>
             <div class="projects-wrapper">
               <div class="projects-grid">
@@ -97,78 +96,6 @@
                   src="img/index-page/code-background.jpg"
                   alt="img"
                 />
-                <div class="project-item">
-                  <h4>Project One</h4>
-                  <div class="card">
-                    <div class="card-img">[Image]</div>
-                    <div class="card-body">
-                      <p>
-                        A web application that simplifies task management with
-                        real-time collaboration features.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="project-item">
-                  <h4>Project Two</h4>
-                  <div class="card">
-                    <div class="card-img">[Image]</div>
-                    <div class="card-body">
-                      <p>
-                        An open-source utility library that helps developers
-                        handle common data transformations.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="project-item">
-                  <h4>Project Three</h4>
-                  <div class="card">
-                    <div class="card-img">[Image]</div>
-                    <div class="card-body">
-                      <p>
-                        A design system with reusable components built for
-                        consistency across products.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="project-item">
-                  <h4>Project Four</h4>
-                  <div class="card">
-                    <div class="card-img">[Image]</div>
-                    <div class="card-body">
-                      <p>
-                        A mobile app that helps users track their daily habits
-                        and build productive routines.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="project-item">
-                  <h4>Project Five</h4>
-                  <div class="card">
-                    <div class="card-img">[Image]</div>
-                    <div class="card-body">
-                      <p>
-                        A real-time dashboard for monitoring server health and
-                        application performance metrics.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="project-item">
-                  <h4>Project Six</h4>
-                  <div class="card">
-                    <div class="card-img">[Image]</div>
-                    <div class="card-body">
-                      <p>
-                        An e-commerce platform with a custom CMS and integrated
-                        payment processing system.
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
               <a class="show-more-btn" href="work.html#projects">View My Work</a>
             </div>
@@ -179,10 +106,11 @@
       <!-- Footer -->
       <footer class="on-orange" data-observe>
         <div class="container">
-          <div class="footer-copy">&copy; 2026 Your Name. All rights reserved.</div>
+          <div class="footer-copy">&copy; 2026 Jelani R. All rights reserved.</div>
         </div>
       </footer>
     </div>
+    <script src="java-script/data-projects.js"></script>
     <script src="java-script/main.js"></script>
     <script src="java-script/index.js"></script>
   </body>

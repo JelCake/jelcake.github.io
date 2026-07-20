@@ -31,6 +31,9 @@
   --s-95: calc(var(--unit) * 9.5);
   --s-10: calc(var(--unit) * 10);
   --s-11: calc(var(--unit) * 11);
+  --s-12: calc(var(--unit) * 12);
+  --s-14: calc(var(--unit) * 14);
+  --s-16: calc(var(--unit) * 16);
   --s-37: calc(var(--unit) * 45);
 
   --accent: #e3a857;
@@ -48,6 +51,7 @@
   --text-faint: #6b6b6d;
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   scrollbar-width: none;
 }
@@ -289,16 +293,15 @@ header a {
 header .logo {
   display: flex;
   align-items: center;
-  gap: var(--s-05);
-  font-size: var(--s-15);
-  font-weight: 800;
-  letter-spacing: -0.04em;
 }
 
 .logo-icon {
-  width: 28px;
-  height: 28px;
+  width: auto;
+  height: 50px;
   display: block;
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px 8px;
 }
 
 header nav {
@@ -423,6 +426,35 @@ footer .container {
 
   .menu-toggle {
     display: flex;
+    margin-left: auto;
+    margin-top: -3px;
+    height: 32px;
+    width: 32px;
+    gap: 4px;
+    transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+  }
+
+  .menu-toggle:hover {
+    border-color: var(--accent-soft);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .menu-toggle span {
+    width: 16px;
+    height: 1.5px;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease), width 0.25s var(--ease);
+  }
+
+  .menu-toggle:hover span {
+    width: 18px;
+  }
+
+  header.nav-open .menu-toggle span:nth-child(1) {
+    transform: translateY(5.5px) rotate(45deg);
+  }
+
+  header.nav-open .menu-toggle span:nth-child(3) {
+    transform: translateY(-5.5px) rotate(-45deg);
   }
 
   header .container {
@@ -459,7 +491,7 @@ footer .container {
   }
 
   footer .container {
-    gap: var(--s-3);
+  gap: var(--s-3);
   }
 }
 

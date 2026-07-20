@@ -100,5 +100,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ─── Parallax ───────────────────────────────────────────────
   initHeroParallax(".about-image-bg");
-  initContentParallax(".education-item, .edu-img, .edu-backstory");
+  initContentParallax(".education-item, .edu-backstory");
 });
