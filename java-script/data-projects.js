@@ -8,6 +8,7 @@ var projectsData = [
     category: "cpp",
     link: "",
     border: "orange",
+    image: "img/cpp-code.png",
   },
   {
     id: 1,
@@ -17,6 +18,7 @@ var projectsData = [
     tech: ["JavaScript", "Node.js", "Express", "MySQL", "Bootstrap"],
     category: "javascript",
     link: "https://github.com/JelCake/MedSupply-ManagementSystem",
+    image: "img/medsupply.webp",
   },
   {
     id: 2,
@@ -26,6 +28,7 @@ var projectsData = [
     tech: ["HTML/CSS", "JavaScript"],
     category: "javascript",
     link: "https://github.com/JelCake/jelcake.github.io",
+    image: "img/this-page.png",
   },
   {
     id: 3,
@@ -35,9 +38,10 @@ var projectsData = [
     tech: ["Java", "JDBC", "SQL"],
     category: "java",
     link: "https://github.com/JelCake/JDBC-School-project",
+    image: "img/user-panel-terminal.png",
   },
   {
-    id: 5,
+    id: 6,
     kicker: "Coming Soon",
     title: "Physics Engine",
     description: "A physics engine built with C# in Godot — work in progress.",

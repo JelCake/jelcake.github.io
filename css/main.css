@@ -168,7 +168,9 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s ease;
 }
 
 .loader.hidden {
@@ -199,9 +201,17 @@ section {
 }
 
 @keyframes loaderSlide {
-  0% { left: -40%; width: 40%; }
-  50% { width: 60%; }
-  100% { left: 110%; width: 40%; }
+  0% {
+    left: -40%;
+    width: 40%;
+  }
+  50% {
+    width: 60%;
+  }
+  100% {
+    left: 110%;
+    width: 40%;
+  }
 }
 
 /* ─── Page enter animation ──────────────────────────── */
@@ -210,8 +220,14 @@ section {
 }
 
 @keyframes pageFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ─── Mobile menu toggle ──────────────────────────────── */
@@ -236,7 +252,9 @@ section {
   margin: 0 auto;
   background: var(--text);
   border-radius: 2px;
-  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  transition:
+    transform 0.3s var(--ease),
+    opacity 0.3s var(--ease);
 }
 
 header.nav-open .menu-toggle span:nth-child(1) {
@@ -296,12 +314,14 @@ header .logo {
 }
 
 .logo-icon {
-  width: auto;
+  width: 50px;
   height: 50px;
   display: block;
   background: #fff;
-  border-radius: 6px;
-  padding: 4px 8px;
+  border-radius: 50%;
+  padding: 8px;
+  object-fit: contain;
+  box-sizing: border-box;
 }
 
 header nav {
@@ -431,7 +451,9 @@ footer .container {
     height: 32px;
     width: 32px;
     gap: 4px;
-    transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+    transition:
+      border-color 0.25s var(--ease),
+      background 0.25s var(--ease);
   }
 
   .menu-toggle:hover {
@@ -442,7 +464,10 @@ footer .container {
   .menu-toggle span {
     width: 16px;
     height: 1.5px;
-    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease), width 0.25s var(--ease);
+    transition:
+      transform 0.3s var(--ease),
+      opacity 0.3s var(--ease),
+      width 0.25s var(--ease);
   }
 
   .menu-toggle:hover span {
@@ -472,7 +497,9 @@ footer .container {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.4s var(--ease), opacity 0.3s var(--ease);
+    transition:
+      max-height 0.4s var(--ease),
+      opacity 0.3s var(--ease);
   }
 
   header.nav-open nav {
@@ -491,7 +518,7 @@ footer .container {
   }
 
   footer .container {
-  gap: var(--s-3);
+    gap: var(--s-3);
   }
 }
 

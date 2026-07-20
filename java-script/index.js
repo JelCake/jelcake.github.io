@@ -8,29 +8,27 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "typescript",
       name: "TypeScript/JavaScript",
-      image: "img/index-page/code-background.jpg",
+      image: "img/typescript.png",
       link: "work.html",
       filter: "javascript",
     },
     {
       id: "nodejs",
       name: "Node.js",
-      image: "img/index-page/cool-face.jpg",
+      image: "img/node.js.png",
       link: "work.html",
       filter: "javascript",
     },
     {
       id: "express",
       name: "Express",
-      image: "img/index-page/connected.jpg",
+      image: "img/express.png",
       link: "work.html",
       filter: "javascript",
     },
-    { id: "htmlcss", name: "HTML/CSS", filter: "javascript" },
-    { id: "java", name: "Java", link: "work.html", filter: "java" },
-    { id: "mysql", name: "MySQL" },
-    { id: "git", name: "GIT" },
-    { id: "drawio", name: "Draw.io" },
+    { id: "htmlcss", name: "HTML/CSS", image: "img/html-css.png", filter: "javascript" },
+    { id: "java", name: "Java", image: "img/java.png", link: "work.html", filter: "java" },
+    { id: "mysql", name: "MySQL", image: "img/sql.png" },
   ];
 
   // ─── Build skills grid ──────────────────────────────────────────
@@ -72,9 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="photo-card-img photo-card-placeholder">
             <span>${skill.name}</span>
           </div>
-          <a class="photo-card-btn" href="#">
-            <em>${skill.name}</em> — coming soon
-          </a>`;
+          <span class="photo-card-btn">
+            <em>${skill.name}</em>
+          </span>`;
       }
 
       carouselTrack.appendChild(card);
@@ -228,10 +226,13 @@ document.addEventListener("DOMContentLoaded", () => {
       item.className = "project-item";
       const borderClass = project.border === "orange" ? " border-orange" : "";
       const techHtml = project.tech.map((t) => `<span>${t}</span>`).join("");
+      const imgHtml = project.image
+        ? `<img class="card-img" src="${project.image}" alt="${project.title}" loading="lazy">`
+        : `<div class="card-img card-img-placeholder"><span class="coming-soon">Coming Soon</span></div>`;
       item.innerHTML = `
         <div class="card${borderClass}">
           <h4>${project.title}</h4>
-          <div class="card-img">[Image]</div>
+          ${imgHtml}
           <div class="card-body">
             <span class="kicker">${project.kicker}</span>
             <p>${project.description}</p>
@@ -287,5 +288,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ─── Page-specific parallax ────────────────────────────────────
   initHeroParallax(".hero-image-bg");
-  initContentParallax(".skills-bg-1, .projects-bg-1, .card-img");
+  initContentParallax(".skills-bg-1, .projects-bg-1");
 });
