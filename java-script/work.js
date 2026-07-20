@@ -27,9 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const borderClass = p.border === "orange" ? " border-orange" : "";
 
+      const imgHtml = p.image
+        ? `<img class="card-img" src="${p.image}" alt="${p.title}" loading="lazy">`
+        : `<div class="card-img card-img-placeholder"><span class="coming-soon">Coming Soon</span></div>`;
+
       item.innerHTML = `
         <div class="card${borderClass}">
-          <div class="card-img">[Image]</div>
+          ${imgHtml}
         </div>
         <div class="card-body">
           <span class="kicker">${p.kicker}</span>
@@ -137,5 +141,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   initHeroParallax(".work-image-bg");
-  initContentParallax(".card-img");
 });
