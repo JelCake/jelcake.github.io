@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "nodejs",
       name: "Node.js",
-      image: "img/node.js.png",
+      image: "img/node-js.png",
       link: "work.html",
       filter: "javascript",
     },
