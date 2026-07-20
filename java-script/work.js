@@ -2,53 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ─── Project data ────────────────────────────────────────────────
 
-  const projects = [
-    {
-      id: 1,
-      kicker: "Web Application",
-      title: "Project One",
-      description: "A web application that simplifies task management with real-time collaboration features.",
-      tech: ["React", "Node.js", "Socket.io"],
-      category: "web",
-      link: "https://github.com/yourusername/project-one",
-    },
-    {
-      id: 2,
-      kicker: "Open Source",
-      title: "Project Two",
-      description: "An open-source utility library that helps developers handle common data transformations.",
-      tech: ["TypeScript", "Vitest"],
-      category: "web",
-      link: "https://github.com/yourusername/project-two",
-    },
-    {
-      id: 3,
-      kicker: "Design System",
-      title: "Project Three",
-      description: "A design system with reusable components built for consistency across products.",
-      tech: ["React", "Storybook", "CSS Modules"],
-      category: "design",
-      link: "https://github.com/yourusername/project-one",
-    },
-    {
-      id: 4,
-      kicker: "This Website",
-      title: "This Portfolio",
-      description: "The very website you're browsing — built from scratch with a focus on clean design and smooth interactions.",
-      tech: ["HTML/CSS", "JavaScript"],
-      category: "web",
-      link: "https://github.com/yourusername/portfolio",
-    },
-    {
-      id: 5,
-      kicker: "Algorithms",
-      title: "C++ Algorithms",
-      description: "A collection of data structures and algorithms implemented in C++, including sorting, searching, and graph traversals.",
-      tech: ["C++"],
-      category: "cpp",
-      link: "https://github.com/yourusername/cpp-algorithms",
-    },
-  ];
+  const projects = window.projectsData || [];
 
   // ─── Render projects ───────────────────────────────────────────
 
@@ -65,8 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const techHtml = p.tech.map((t) => `<span>${t}</span>`).join("");
 
+      const linkHtml = p.link
+        ? `<a href="${p.link}" class="project-link" target="_blank" rel="noopener">
+             View Project Source Code <span class="arrow">&rarr;</span>
+           </a>`
+        : "";
+
+      const borderClass = p.border === "orange" ? " border-orange" : "";
+
       item.innerHTML = `
-        <div class="card">
+        <div class="card${borderClass}">
           <div class="card-img">[Image]</div>
         </div>
         <div class="card-body">
@@ -74,9 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h4>${p.title}</h4>
           <p>${p.description}</p>
           <div class="tech">${techHtml}</div>
-          <a href="${p.link}" class="project-link" target="_blank" rel="noopener">
-            View Project Source Code <span class="arrow">&rarr;</span>
-          </a>
+          ${linkHtml}
         </div>
       `;
 
@@ -100,7 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
     cardObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          entry.target.classList.toggle("revealed", entry.isIntersecting);
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            cardObserver.unobserve(entry.target);
+          }
         });
       },
       { threshold: 0.1, rootMargin: "0px 0px -80px 0px" },

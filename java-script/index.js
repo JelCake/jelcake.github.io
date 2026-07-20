@@ -10,24 +10,24 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "TypeScript/JavaScript",
       image: "img/index-page/code-background.jpg",
       link: "work.html",
-      filter: "web",
+      filter: "javascript",
     },
     {
       id: "nodejs",
       name: "Node.js",
       image: "img/index-page/cool-face.jpg",
       link: "work.html",
-      filter: "web",
+      filter: "javascript",
     },
     {
       id: "express",
       name: "Express",
       image: "img/index-page/connected.jpg",
       link: "work.html",
-      filter: "web",
+      filter: "javascript",
     },
-    { id: "htmlcss", name: "HTML/CSS", filter: "web" },
-    { id: "java", name: "Java" },
+    { id: "htmlcss", name: "HTML/CSS", filter: "javascript" },
+    { id: "java", name: "Java", link: "work.html", filter: "java" },
     { id: "mysql", name: "MySQL" },
     { id: "git", name: "GIT" },
     { id: "drawio", name: "Draw.io" },
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const item = document.createElement("div");
       item.className = "skill-item";
       item.dataset.skill = skill.id;
-      item.innerHTML = `<div class="skill-icon"></div><span class="skill-label">${skill.name}</span>`;
+      item.innerHTML = `<span class="skill-label">${skill.name}</span>`;
       skillsGrid.appendChild(item);
     });
   }
@@ -189,46 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
       hero.classList.add("animate-in");
     }
 
-    // ─── Scramble text effect ─────────────────────────────────────
-    // Randomly cycles through letters before revealing the real text,
-    // starts after the hero text has slid into view.
-
-    let scrambleTriggered = false;
-    const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    const scrambleText = () => {
-      if (scrambleTriggered || !heroTitle) return;
-      scrambleTriggered = true;
-
-      const lines = heroTitle.innerText.split("\n");
-      const lineLengths = lines.map((l) => l.length);
-      const totalLength = lineLengths.reduce((a, b) => a + b, 0);
-      let revealed = 0;
-
-      const interval = setInterval(() => {
-        let charIndex = 0;
-        const result = lines.map((line, li) => {
-          const start = charIndex;
-          charIndex += lineLengths[li];
-          return line
-            .split("")
-            .map((letter, i) => {
-              if (start + i < revealed) return letter;
-              return scrambleChars[Math.floor(Math.random() * 26)];
-            })
-            .join("");
-        });
-        heroTitle.innerText = result.join("\n");
-
-        if (revealed < totalLength) {
-          revealed++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 30);
-    };
-
-    setTimeout(scrambleText, 500);
   };
 
   // ─── Image preloader ────────────────────────────────────────────
@@ -255,6 +215,31 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener("load", checkDone);
         img.addEventListener("error", checkDone);
       }
+    });
+  }
+
+  // ─── Render projects from shared data ──────────────────────────
+  const projectsGrid = document.querySelector(".projects-grid");
+  const projectsList = window.projectsData || [];
+
+  if (projectsGrid && projectsList.length > 0) {
+    projectsList.forEach((project) => {
+      const item = document.createElement("div");
+      item.className = "project-item";
+      const borderClass = project.border === "orange" ? " border-orange" : "";
+      const techHtml = project.tech.map((t) => `<span>${t}</span>`).join("");
+      item.innerHTML = `
+        <div class="card${borderClass}">
+          <h4>${project.title}</h4>
+          <div class="card-img">[Image]</div>
+          <div class="card-body">
+            <span class="kicker">${project.kicker}</span>
+            <p>${project.description}</p>
+            <div class="tech">${techHtml}</div>
+          </div>
+        </div>
+      `;
+      projectsGrid.appendChild(item);
     });
   }
 

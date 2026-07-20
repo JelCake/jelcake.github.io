@@ -50,6 +50,24 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 
+  // ─── Contact cards scroll-reveal ────────────────────────────────
+
+  const cards = document.querySelectorAll(".contact-link-card");
+  if (cards.length) {
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+    cards.forEach((card) => cardObserver.observe(card));
+  }
+
   // ─── Page-specific parallax ────────────────────────────────────
   initHeroParallax(".contact-image-bg");
 });

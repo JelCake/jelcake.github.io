@@ -189,63 +189,37 @@
 
 .tl-line {
   position: absolute;
-  top: 0;
-  bottom: 0;
   left: 50%;
   width: 2px;
-  z-index: 0;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.12) 0px,
-    rgba(255, 255, 255, 0.12) 8px,
-    transparent 8px,
-    transparent 16px
-  );
-  background-repeat: repeat-y;
-  background-size: 100% 16px;
-  animation: lineMarch 2s linear infinite;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .tl-line-fill {
   position: absolute;
-  top: 0;
   left: 50%;
   width: 2px;
-  height: 100%;
-  z-index: 0;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    var(--accent) 0px,
-    var(--accent) 8px,
-    transparent 8px,
-    transparent 16px
-  );
-  background-repeat: repeat-y;
-  background-size: 100% 16px;
+  z-index: -1;
+  background: var(--accent);
   clip-path: inset(0 0 100% 0);
   will-change: clip-path;
-  animation: lineMarch 2s linear infinite;
 }
 
 .tl-dot {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background: var(--accent);
   z-index: 1;
-  animation: dotWave 2s ease-in-out infinite;
-  animation-delay: calc(var(--i) * 0.25s);
 }
 
 .edu-row:nth-of-type(1) .tl-dot { --i: 0; }
 .edu-row:nth-of-type(2) .tl-dot { --i: 1; }
 .edu-row:nth-of-type(3) .tl-dot { --i: 2; }
 .edu-row:nth-of-type(4) .tl-dot { --i: 3; }
-.edu-row:nth-of-type(5) .tl-dot { --i: 4; }
 
 .edu-year-bg {
   position: absolute;
@@ -287,41 +261,23 @@
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.4);
 }
 
-.edu-img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.1);
-  font-size: var(--s-05);
-  transform: translate3d(0, var(--py, 0px), 0);
-  will-change: transform;
+.edu-content {
+  padding: var(--s-2) var(--s-15);
+  text-align: center;
 }
 
-.edu-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--s-15) var(--s-1) var(--s-1);
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
-  pointer-events: none;
-}
-
-.edu-overlay h4 {
-  font-size: var(--s-15);
-  font-weight: 800;
+.edu-content h4 {
+  font-size: var(--s-125);
+  font-weight: 700;
   letter-spacing: -0.01em;
-  margin: 0 0 var(--s-025);
+  margin: 0 0 var(--s-0375);
   color: #fff;
 }
 
-.edu-overlay .school {
-  font-size: var(--s-0625);
-  color: var(--text-dim);
-  margin-bottom: var(--s-025);
+.edu-content .school {
+  font-size: var(--s-05);
+  color: var(--text);
+  margin: 0;
 }
 
 .edu-backstory {
@@ -335,20 +291,64 @@
 }
 
 .edu-backstory p {
-  font-size: var(--s-0875);
-  color: var(--text-dim);
-  line-height: 1.7;
+  font-size: var(--s-075);
+  color: var(--text);
+  line-height: 1.6;
   margin: 0;
 }
 
-/* ─── Keyframes ───────────────────────────────────────── */
-@keyframes lineMarch {
-  to { background-position: 0 -16px; }
+/* ─── Reveal animations ───────────────────────────────── */
+.edu-row .tl-dot,
+.edu-row .education-item,
+.edu-row .edu-img,
+.edu-row .edu-overlay,
+.edu-row .edu-backstory {
+  opacity: 0;
+  will-change: transform, opacity;
 }
 
-@keyframes dotWave {
-  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-  50% { transform: translate(-50%, -50%) translateY(-8px); }
+.edu-row .tl-dot {
+  transform: translate(-50%, -50%) scale(0);
+  transition: opacity 0.4s var(--spring), transform 0.6s var(--spring);
+}
+
+.edu-row .education-item {
+  transform: scale(0.92) translateY(30px);
+  transition: opacity 0.5s var(--spring), transform 0.7s var(--spring);
+}
+
+.edu-row .edu-content {
+  transform: translateY(12px);
+  transition: opacity 0.5s var(--spring), transform 0.6s var(--spring);
+}
+
+.edu-row .edu-backstory {
+  transform: translateY(24px);
+  transition: opacity 0.5s var(--spring), transform 0.7s var(--spring);
+}
+
+.edu-row.revealed .tl-dot {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-delay: 0s;
+}
+
+.edu-row.revealed .education-item {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition-delay: 0.1s;
+}
+
+.edu-row.revealed .edu-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.edu-row.revealed .edu-backstory {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
 }
 
 /* ─── Responsive ──────────────────────────────────────── */
@@ -356,9 +356,6 @@
   .education-item {
     width: 100%;
   }
-  .tl-line,
-  .tl-line-fill,
-  .tl-dot,
   .edu-year-bg {
     display: none;
   }
